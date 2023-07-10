@@ -14,8 +14,7 @@ CREATE TABLE Aliment (
   idcategorieregime INT,
   FOREIGN KEY (idcategorieregime) REFERENCES Categorieregime(idcategorieregime)
 );
-INSERT INTO Aliment (nom, idcategorieregime) VALUES
-                                                        ('Carotte', 2),
+INSERT INTO Aliment (nom, idcategorieregime) VALUES ('Carotte', 2),
                                                         ('Pomme', 2),
                                                         ('Riz', 2),
                                                         ('Brocoli', 2),

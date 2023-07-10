@@ -97,7 +97,7 @@ class Utilisateur extends CI_Model {
         $query = $this->db->get();
 
         // Vérifie si l'utilisateur existe et si le mot de passe correspond
-        if ($query->num_rows() > 0) {
+        if ($query->num_rows() != null) {
             return $query->row();
         }
         throw new Exception("Revérifier votre adresse email et votre mot de passe"); // L'utilisateur n'existe pas
