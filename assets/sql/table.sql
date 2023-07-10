@@ -4,6 +4,9 @@ CREATE TABLE CategorieRegime (
   nom VARCHAR(50) NOT NULL
 );
 
+INSERT INTO CategorieRegime VALUES (DEFAULT, 'Augmenter mon poids');
+INSERT INTO CategorieRegime VALUES (DEFAULT, 'Diminuer mon poids');
+
 -- Création de la table Aliment
 CREATE TABLE Aliment (
   idAliment INT PRIMARY KEY AUTO_INCREMENT,
@@ -11,6 +14,17 @@ CREATE TABLE Aliment (
   idCategorieRegime INT,
   FOREIGN KEY (idCategorieRegime) REFERENCES CategorieRegime(idCategorieRegime)
 );
+INSERT INTO Aliment (idAliment, nom, idCategorieRegime) VALUES
+                                                            (DEFAULT, 'Carotte', 2),
+                                                            (DEFAULT, 'Pomme', 2),
+                                                            (DEFAULT, 'Riz', 2),
+                                                            (DEFAULT, 'Brocoli', 2),
+                                                            (DEFAULT, 'Quinoa', 2),
+                                                            (DEFAULT, 'Courgette', 2),
+                                                            (DEFAULT, 'Banane', 1),
+                                                            (DEFAULT, 'Amande', 1),
+                                                            (DEFAULT, 'Pois chiche', 1);
+
 
 -- Création de la table Activite
 CREATE TABLE Activite (
@@ -20,15 +34,35 @@ CREATE TABLE Activite (
   FOREIGN KEY (idCategorieRegime) REFERENCES CategorieRegime(idCategorieRegime)
 );
 
+INSERT INTO Activite (nom, idCategorieRegime) VALUES
+                                                  ('Course à pied', 2),
+                                                  ('Natation', 2),
+                                                  ('Cyclisme', 2),
+                                                  ('Haltérophilie', 1),
+                                                  ('Yoga', 1),
+                                                  ('Zumba', 1),
+                                                  ('Escalade', 2);
+
+CREATE TABLE Genre(
+    idGenre INT PRIMARY KEY AUTO_INCREMENT,
+    nomGenre CHARACTER(15) NOT NULL
+);
+
+INSERT INTO Genre(nomGenre) VALUES('Féminin');
+INSERT INTO Genre(nomGenre) VALUES('Masculin');
+
+
 -- Création de la table Utilisateur
 CREATE TABLE Utilisateur (
   idUtilisateur INT PRIMARY KEY AUTO_INCREMENT,
   nom VARCHAR(50) NOT NULL,
   prenom VARCHAR(50) NOT NULL,
   email VARCHAR(100) NOT NULL,
-  date_naissance DATE NOT NULL,
-  date_enregistrement DATETIME NOT NULL,
-  mot_de_passe VARCHAR(100) NOT NULL
+  dateNaissance DATE NOT NULL ,
+  dateEnregistrement DATETIME NOT NULL,
+  idGenre INT NOT NULL,
+  motDePasse VARCHAR(100) NOT NULL,
+  FOREIGN KEY (idGenre) REFERENCES Genre(idGenre)
 );
 
 -- Création de la table Profil
