@@ -71,9 +71,9 @@ class Utilisateur extends CI_Model {
     public function insertUtilisateur($data){
         $data = $this->escape_post($data);
         $data["email"] = $this->checkEmail($data["email"]);
-        $data["dateNaissance"] = $this->checkDateNaissance($data["dateNaissance"]);
-        $data["dateEnregistrement"] = $this->checkDateEnregistrement($data["dateEnregistrement"]);
-        $data["motDePasse"] = $this->checkMotDePasse($data["motDePasse"]);
+        $data["datenaissance"] = $this->checkDateNaissance($data["datenaissance"]);
+        $data["dateenregistrement"] = $this->checkDateEnregistrement($data["dateenregistrement"]);
+        $data["motdepasse"] = $this->checkMotDePasse($data["motdepasse"]);
 
         // Effectue l'insertion dans la table "utilisateurs"
         $this->db->insert('utilisateur', $data);
@@ -102,11 +102,11 @@ class Utilisateur extends CI_Model {
     public function checkLogin($data) {
         $data = $this->escape_post($data);
         $data["email"] = $this->checkEmail($data["email"]);
-        $data["motDePasse"] = $this->checkMotDePasse($data["motDePasse"]);
+        $data["motdepasse"] = $this->checkMotDePasse($data["motdepasse"]);
         $this->db->select('*');
         $this->db->from('utilisateur');
         $this->db->where('email',  $data["email"]);
-        $this->db->where('motDePasse',$data["motDePasse"]);
+        $this->db->where('motdepasse',$data["motdepasse"]);
 
         $query = $this->db->get();
 

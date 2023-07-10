@@ -1,40 +1,40 @@
 -- Création de la table CategorieRegime
-CREATE TABLE Categorie_regime (
-    id_categorie_regime INT PRIMARY KEY AUTO_INCREMENT,
+CREATE TABLE Categorieregime (
+    idcategorieregime INT PRIMARY KEY AUTO_INCREMENT,
     nom VARCHAR(50) NOT NULL
 );
 
-INSERT INTO Categorie_regime VALUES (DEFAULT, 'Augmenter mon poids');
-INSERT INTO Categorie_regime VALUES (DEFAULT, 'Diminuer mon poids');
+INSERT INTO Categorieregime VALUES (DEFAULT, 'Augmenter mon poids');
+INSERT INTO Categorieregime VALUES (DEFAULT, 'Diminuer mon poids');
 
 -- Création de la table Aliment
 CREATE TABLE Aliment (
-  id_aliment INT PRIMARY KEY AUTO_INCREMENT,
+  idaliment INT PRIMARY KEY AUTO_INCREMENT,
   nom VARCHAR(50) NOT NULL,
-  id_categorie_regime INT,
-  FOREIGN KEY (id_categorie_regime) REFERENCES Categorie_regime(id_categorie_regime)
+  idcategorieregime INT,
+  FOREIGN KEY (idcategorieregime) REFERENCES Categorieregime(idcategorieregime)
 );
-INSERT INTO Aliment (nom, id_categorie_regime) VALUES
-                                                            ('Carotte', 2),
-                                                            ('Pomme', 2),
-                                                            ('Riz', 2),
-                                                            ('Brocoli', 2),
-                                                            ('Quinoa', 2),
-                                                            ('Courgette', 2),
-                                                            ('Banane', 1),
-                                                            ('Amande', 1),
-                                                            ('Pois chiche', 1);
+INSERT INTO Aliment (nom, idcategorieregime) VALUES
+                                                        ('Carotte', 2),
+                                                        ('Pomme', 2),
+                                                        ('Riz', 2),
+                                                        ('Brocoli', 2),
+                                                        ('Quinoa', 2),
+                                                        ('Courgette', 2),
+                                                        ('Banane', 1),
+                                                        ('Amande', 1),
+                                                        ('Pois chiche', 1);
 
 
 -- Création de la table Activite
 CREATE TABLE Activite (
-  idActivite INT PRIMARY KEY AUTO_INCREMENT,
+  idactivite INT PRIMARY KEY AUTO_INCREMENT,
   nom VARCHAR(50) NOT NULL,
-  id_categorie_regime INT,
-  FOREIGN KEY (id_categorie_regime) REFERENCES Categorie_regime(id_categorie_regime)
+  idcategorieregime INT,
+  FOREIGN KEY (idcategorieregime) REFERENCES Categorieregime(idcategorieregime)
 );
 
-INSERT INTO Activite (nom, id_categorie_regime) VALUES
+INSERT INTO Activite (nom, idcategorieregime) VALUES
                                                   ('Course à pied', 2),
                                                   ('Natation', 2),
                                                   ('Cyclisme', 2),
@@ -44,72 +44,72 @@ INSERT INTO Activite (nom, id_categorie_regime) VALUES
                                                   ('Escalade', 2);
 
 CREATE TABLE Genre(
-    id_genre INT PRIMARY KEY AUTO_INCREMENT,
-    nom_genre CHARACTER(15) NOT NULL
+    idgenre INT PRIMARY KEY AUTO_INCREMENT,
+    nomgenre CHARACTER(15) NOT NULL
 );
 
-INSERT INTO Genre(nom_genre) VALUES('Féminin');
-INSERT INTO Genre(nom_genre) VALUES('Masculin');
+INSERT INTO Genre(nomgenre) VALUES('Féminin');
+INSERT INTO Genre(nomgenre) VALUES('Masculin');
 
 
 -- Création de la table Utilisateur
 CREATE TABLE Utilisateur (
-  idUtilisateur INT PRIMARY KEY AUTO_INCREMENT,
+  idutilisateur INT PRIMARY KEY AUTO_INCREMENT,
   nom VARCHAR(50) NOT NULL,
   prenom VARCHAR(50) NOT NULL,
   email VARCHAR(100) NOT NULL,
-  date_naissance DATE NOT NULL ,
-  date_enregistrement DATETIME NOT NULL,
-  id_genre INT NOT NULL,
-  mot_de_passe VARCHAR(100) NOT NULL,
-  is_admin INT NOT NULL,
-  FOREIGN KEY (id_genre) REFERENCES Genre(id_genre)
+  datenaissance DATE NOT NULL ,
+  dateenregistrement DATETIME NOT NULL,
+  idgenre INT NOT NULL,
+  motdepasse VARCHAR(100) NOT NULL,
+  isadmin INT NOT NULL,
+  FOREIGN KEY (idgenre) REFERENCES Genre(idgenre)
 );
 
 -- Création de la table Profil
 CREATE TABLE Profil (
-  id_profil INT PRIMARY KEY AUTO_INCREMENT,
-  id_utilisateur INT,
+  idprofil INT PRIMARY KEY AUTO_INCREMENT,
+  idutilisateur INT,
   poids DECIMAL(5,2) NOT NULL,
   taille DECIMAL(3,2) NOT NULL,
   date_profil DATE NOT NULL,
-  FOREIGN KEY (id_utilisateur) REFERENCES Utilisateur(id_utilisateur)
+  FOREIGN KEY (idutilisateur) REFERENCES Utilisateur(idutilisateur)
 );
 
 -- Création de la table Regime
 CREATE TABLE Regime (
-  idRegime INT PRIMARY KEY AUTO_INCREMENT,
-  idCategorieRegime INT,
+  idregime INT PRIMARY KEY AUTO_INCREMENT,
+  idcategorieregime INT,
   montant DECIMAL(6,2) NOT NULL,
   duree INT NOT NULL,
   poids DECIMAL(5,2) NOT NULL,
-  FOREIGN KEY (idCategorieRegime) REFERENCES CategorieRegime(idCategorieRegime)
+  FOREIGN KEY (idcategorieregime) REFERENCES Categorieregime(idcategorieregime)
 );
 
 -- Création de la table RegimeAliment
-CREATE TABLE RegimeAliment (
-  idRegimeAliment INT PRIMARY KEY AUTO_INCREMENT,
-  idAliment INT,
-  idRegime INT,
-  FOREIGN KEY (idAliment) REFERENCES Aliment(idAliment),
-  FOREIGN KEY (idRegime) REFERENCES Regime(idRegime)
+CREATE TABLE Regimealiment (
+  idregimealiment INT PRIMARY KEY AUTO_INCREMENT,
+  idaliment INT,
+  idregime INT,
+  FOREIGN KEY (idaliment) REFERENCES Aliment(idaliment),
+  FOREIGN KEY (idregime) REFERENCES Regime(idregime)
 );
 
 -- Création de la table RegimeActivité
-CREATE TABLE RegimeActivite (
-  idRegimeActivite INT PRIMARY KEY AUTO_INCREMENT,
-  idActivite INT,
-  idRegime INT,
-  FOREIGN KEY (idActivite) REFERENCES Activite(idActivite),
-  FOREIGN KEY (idRegime) REFERENCES Regime(idRegime)
+CREATE TABLE Regimeactivite (
+  idregimeactivite INT PRIMARY KEY AUTO_INCREMENT,
+  idactivite INT,
+  idregime INT,
+  FOREIGN KEY (idactivite) REFERENCES Activite(idactivite),
+  FOREIGN KEY (idregime) REFERENCES Regime(idregime)
 );
 
 -- Création de la table Suggestion
 CREATE TABLE Suggestion (
-  idSuggestion INT PRIMARY KEY AUTO_INCREMENT,
-  idRegime INT,
-  idProfil INT,
-  estPaye INT NOT NULL,
-  FOREIGN KEY (idRegime) REFERENCES Regime(idRegime),
-  FOREIGN KEY (idProfil) REFERENCES Profil(idProfil)
+  idsuggestion INT PRIMARY KEY AUTO_INCREMENT,
+  idregime INT,
+  idprofil INT,
+  estpaye INT NOT NULL,
+  FOREIGN KEY (idregime) REFERENCES Regime(idregime),
+  FOREIGN KEY (idprofil) REFERENCES Profil(idprofil)
 );
