@@ -68,7 +68,7 @@
                                  <a class="nav-link" href="#">Contact</a>
                               </li>
                            </ul>
-                           <div class="Call"><a href="#"> <span class="yellow">Log In</a></div>
+                           <div class="Call"><a href="<?=site_url('front_controller/login') ?>"> <span class="yellow">Log In</a></div>
                         </div>
                      </nav>
                   </div>

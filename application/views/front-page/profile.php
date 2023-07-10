@@ -110,7 +110,7 @@
                                           </div>
                                           <div class="test_box">
                                              <h4>mark du</h4>
-                                             <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,</p>
+                                             <p>I have tried numerous weight loss programs in the past, but none have been as effective and enjoyable as this one. Incorporating SlimPasta, FitNoodles, and SlimEggs into my meals has made a significant difference. I can indulge in my favorite dishes without the guilt, and the pounds have been steadily dropping. It's truly a game-changer!</p>
                                              <i><img src="<?=base_url()?>assets/front/images/toy_img.png" alt="#"/></i>
                                           </div>
                                        </div>
