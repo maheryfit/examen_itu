@@ -72,7 +72,7 @@ CREATE TABLE Profil (
   idutilisateur INT,
   poids DECIMAL(5,2) NOT NULL,
   taille DECIMAL(3,2) NOT NULL,
-  date_profil DATE NOT NULL,
+  dateprofil DATE NOT NULL,
   FOREIGN KEY (idutilisateur) REFERENCES Utilisateur(idutilisateur)
 );
 

@@ -117,10 +117,19 @@ class Utilisateur extends CI_Model {
         throw new Exception("Revérifier votre adresse email et votre mot de passe"); // L'utilisateur n'existe pas
     }
 
-    public function selectUtilisateur() {
+    public function select() {
         $this->db->select('*');
         $this->db->from('utilisateur');
         return $this->db->get();
+    }
+
+    public function select_by_id($id)
+    {
+        $this->db->select('*');
+        $this->db->where('idutilisateur', $id);
+        $this->db->from('utilisateur');
+        $user = $this->db->get();
+        return $user->row();
     }
 
 }
