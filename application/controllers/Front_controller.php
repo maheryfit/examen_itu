@@ -19,4 +19,10 @@ class Front_controller extends CI_Controller
         $this->data["page"] = "login";
         $this->load->view("front-page/template-front", $this->data);
     }
+
+    public function register() {
+        $this->data["title"] = "Login client";
+        $this->data["page"] = "register";
+        $this->load->view("front-page/template", $this->data);
+    }
 }
