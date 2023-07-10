@@ -13,4 +13,10 @@ class Front_controller extends CI_Controller
         $this->data["page"] = "profile";
         $this->load->view("front-page/template-front", $this->data);
     }
+
+    public function login() {
+        $this->data["title"] = "Login client";
+        $this->data["page"] = "login";
+        $this->load->view("front-page/template-front", $this->data);
+    }
 }

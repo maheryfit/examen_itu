@@ -1,0 +1,8 @@
+.login{
+    background-image: url("assets/back/images/Diet.jpeg");
+}
+
+.container-scroller{
+    border: 1px black solid;
+    position: fixed;
+}
