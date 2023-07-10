@@ -68,7 +68,14 @@
                                  <a class="nav-link" href="#">Contact</a>
                               </li>
                            </ul>
-                           <div class="Call"><a href="<?=site_url('front_controller/login') ?>"> <span class="yellow">Log In</a></div>
+
+                           <div class="Call">
+                              <?php if($session!=null) { ?>
+                                 <a href="#"><span class="yellow"><?= $session["nom"] ?></a>
+                              <?php } else { ?>
+                                 <a href="<?=base_url("Front-controller/login") ?>"><span class="yellow">Log In</a>
+                              <?php } ?>
+                           </div>
                         </div>
                      </nav>
                   </div>

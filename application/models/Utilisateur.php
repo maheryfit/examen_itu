@@ -90,9 +90,9 @@ class Utilisateur extends CI_Model {
         $data = $this->escape_post($data);
         $data["motdepasse"] = $this->checkMotDePasse($data["motdepasse"]);
         $this->db->select('*');
-        $this->db->from('utilisateur');
-        $this->db->where('email',  $data["email"]);
         $this->db->where('motdepasse',$data["motdepasse"]);
+        $this->db->where('email',  $data["email"]);
+        $this->db->from('utilisateur');
 
         $query = $this->db->get();
 
@@ -101,6 +101,19 @@ class Utilisateur extends CI_Model {
             return $query->row();
         }
         throw new Exception("Revérifier votre adresse email et votre mot de passe"); // L'utilisateur n'existe pas
+    }
+
+    public  function  log($email,$password){
+        //create connection
+        $connector = new PDO_Connector();
+        $connection = $connector->connect();
+
+        $user = DAO_model::selectAll($connection,"regime"," email='$email' and motdepasse = '$password' ");
+
+        if (count($user) != 0) return $user[0];
+
+        $connection = null;
+        return false;
     }
 
     public function select() {
