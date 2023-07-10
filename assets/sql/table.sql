@@ -113,3 +113,10 @@ CREATE TABLE Suggestion (
   FOREIGN KEY (idregime) REFERENCES Regime(idregime),
   FOREIGN KEY (idprofil) REFERENCES Profil(idprofil)
 );
+
+CREATE TABLE Codeportemonnaie (
+    idcodeportemonnaie INT PRIMARY KEY AUTO_INCREMENT,
+    code VARCHAR(10) NOT NULL UNIQUE,
+    montant DECIMAL(6,2) NOT NULL,
+    etat INT NOT NULL
+);
