@@ -75,7 +75,7 @@ class Utilisateur extends CI_Model {
         $data["dateEnregistrement"] = $this->checkDateEnregistrement($data["dateEnregistrement"]);
         $data["motDePasse"] = $this->checkMotDePasse($data["motDePasse"]);
 
-        // Effectue l'insertion dans la table "users"
+        // Effectue l'insertion dans la table "utilisateurs"
         $this->db->insert('utilisateur', $data);
 
         // Récupère l'ID de l'utilisateur inséré
@@ -85,7 +85,7 @@ class Utilisateur extends CI_Model {
         if ($lastInsertedId) {
             return $lastInsertedId;
         } else {
-            throw new Exception("Erreur de l'insertion dans la base"); // Erreur lors de l'insertion
+            throw new Exception("Erreur de l'insertion d'utilisateur"); // Erreur lors de l'insertion
         }
     }
 
@@ -99,7 +99,7 @@ class Utilisateur extends CI_Model {
     /**
      * @throws Exception
      */
-    public function checkLogin($data){
+    public function checkLogin($data) {
         $data = $this->escape_post($data);
         $data["email"] = $this->checkEmail($data["email"]);
         $data["motDePasse"] = $this->checkMotDePasse($data["motDePasse"]);
@@ -115,6 +115,12 @@ class Utilisateur extends CI_Model {
             return $query->row();
         }
         throw new Exception("Revérifier votre adresse email et votre mot de passe"); // L'utilisateur n'existe pas
+    }
+
+    public function selectUtilisateur() {
+        $this->db->select('*');
+        $this->db->from('utilisateur');
+        return $this->db->get();
     }
 
 }
