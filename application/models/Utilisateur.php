@@ -11,12 +11,12 @@ class Utilisateur extends CI_Model {
 
         // Vérifie si la date de naissance est valide
         if (strtotime($date_enregistrement) === false) {
-            throw new Exception("La date de naissance est invalide"); //
+            throw new Exception("La date d'enregistrement est invalide"); //
         }
 
         // Vérifie si la date de naissance est antérieure à la date actuelle
         if ($date_enregistrement < $today) {
-            throw new Exception("La date de naissance est future (non valide)"); //
+            throw new Exception("La date d'enregistrement doit être futur"); //
         }
         return $date_enregistrement;
     }
@@ -46,9 +46,13 @@ class Utilisateur extends CI_Model {
      */
     public function checkEmail($email)
     {
-        if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            return $email;
-        } else {
+        // Expression régulière pour valider l'email
+        $regex = '/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/';
+
+        // Vérifie si l'email correspond à l'expression régulière
+        if (preg_match($regex, $email)) {
+            return true; // L'email est valide
+        }else {
             throw new Exception("Votre email est invalide"); //
         }
     }
@@ -117,10 +121,19 @@ class Utilisateur extends CI_Model {
         throw new Exception("Revérifier votre adresse email et votre mot de passe"); // L'utilisateur n'existe pas
     }
 
-    public function selectUtilisateur() {
+    public function select() {
         $this->db->select('*');
         $this->db->from('utilisateur');
         return $this->db->get();
+    }
+
+    public function select_by_id($id)
+    {
+        $this->db->select('*');
+        $this->db->where('idutilisateur', $id);
+        $this->db->from('utilisateur');
+        $user = $this->db->get();
+        return $user->row();
     }
 
 }

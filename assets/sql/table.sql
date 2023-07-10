@@ -72,7 +72,7 @@ CREATE TABLE Profil (
   idutilisateur INT,
   poids DECIMAL(5,2) NOT NULL,
   taille DECIMAL(3,2) NOT NULL,
-  date_profil DATE NOT NULL,
+  dateprofil DATE NOT NULL,
   FOREIGN KEY (idutilisateur) REFERENCES Utilisateur(idutilisateur)
 );
 
@@ -112,4 +112,11 @@ CREATE TABLE Suggestion (
   estpaye INT NOT NULL,
   FOREIGN KEY (idregime) REFERENCES Regime(idregime),
   FOREIGN KEY (idprofil) REFERENCES Profil(idprofil)
+);
+
+CREATE TABLE Codeportemonnaie (
+    idcodeportemonnaie INT PRIMARY KEY AUTO_INCREMENT,
+    code VARCHAR(10) NOT NULL UNIQUE,
+    montant DECIMAL(6,2) NOT NULL,
+    etat INT NOT NULL
 );
