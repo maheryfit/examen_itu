@@ -40,22 +40,6 @@ class Utilisateur extends CI_Model {
         return $dateNaissance;
     }
 
-    /**
-     * @param mixed $email
-     * @throws Exception
-     */
-    public function checkEmail($email)
-    {
-        // Expression régulière pour valider l'email
-        $regex = '/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/';
-
-        // Vérifie si l'email correspond à l'expression régulière
-        if (preg_match($regex, $email)) {
-            return true; // L'email est valide
-        }else {
-            throw new Exception("Votre email est invalide"); //
-        }
-    }
 
     /**
      * @param mixed $mot_de_passe
@@ -74,7 +58,6 @@ class Utilisateur extends CI_Model {
      */
     public function insertUtilisateur($data){
         $data = $this->escape_post($data);
-        $data["email"] = $this->checkEmail($data["email"]);
         $data["datenaissance"] = $this->checkDateNaissance($data["datenaissance"]);
         $data["dateenregistrement"] = $this->checkDateEnregistrement($data["dateenregistrement"]);
         $data["motdepasse"] = $this->checkMotDePasse($data["motdepasse"]);
@@ -105,7 +88,6 @@ class Utilisateur extends CI_Model {
      */
     public function checkLogin($data) {
         $data = $this->escape_post($data);
-        $data["email"] = $this->checkEmail($data["email"]);
         $data["motdepasse"] = $this->checkMotDePasse($data["motdepasse"]);
         $this->db->select('*');
         $this->db->from('utilisateur');
@@ -115,7 +97,7 @@ class Utilisateur extends CI_Model {
         $query = $this->db->get();
 
         // Vérifie si l'utilisateur existe et si le mot de passe correspond
-        if ($query->num_rows() > 0) {
+        if ($query->num_rows() != null) {
             return $query->row();
         }
         throw new Exception("Revérifier votre adresse email et votre mot de passe"); // L'utilisateur n'existe pas

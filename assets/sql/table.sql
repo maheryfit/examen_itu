@@ -14,8 +14,7 @@ CREATE TABLE Aliment (
   idcategorieregime INT,
   FOREIGN KEY (idcategorieregime) REFERENCES Categorieregime(idcategorieregime)
 );
-INSERT INTO Aliment (nom, idcategorieregime) VALUES
-                                                        ('Carotte', 2),
+INSERT INTO Aliment (nom, idcategorieregime) VALUES ('Carotte', 2),
                                                         ('Pomme', 2),
                                                         ('Riz', 2),
                                                         ('Brocoli', 2),
@@ -119,4 +118,13 @@ CREATE TABLE Codeportemonnaie (
     code VARCHAR(10) NOT NULL UNIQUE,
     montant DECIMAL(6,2) NOT NULL,
     etat INT NOT NULL
+);
+
+
+CREATE TABLE Validationcodeportemonnaie (
+    idcodeportemonnaie INT NOT NULL,
+    idutilisateur INT NOT NULL,
+    datevalidation DATE NOT NULL,
+    FOREIGN KEY (idcodeportemonnaie) REFERENCES Codeportemonnaie(idcodeportemonnaie),
+    FOREIGN KEY (idutilisateur) REFERENCES Utilisateur(idutilisateur)
 );
