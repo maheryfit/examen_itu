@@ -13,7 +13,6 @@ class Admin_controller extends Session_controller {
         $this->checkSession("admin", site_url("Admin_controller/login"));
         $this->data["title"] = "Administrateur";
         $this->data["page"] = "index";
-        $this->data["session"] = $this->session->user;
         $this->load->view("admin-page/template-admin", $this->data);
     }
 
@@ -44,7 +43,6 @@ class Admin_controller extends Session_controller {
         $motdepasse = $this->input->post("motdepasse");
 
         try {
-<<<<<<< Updated upstream
             $rep = $this->Login_model->logAsAdmin($email,$motdepasse);
             if($rep == false){
                 echo "tsy misy ";
@@ -52,22 +50,10 @@ class Admin_controller extends Session_controller {
             } 
                 
             $this->session->set_userdata("admin",$rep);
-=======
-            $rep = $this->Utilisateur->checkLogin($data);
             redirect(site_url("admin_controller/index"));
->>>>>>> Stashed changes
         } catch (Exception $e) {
-            echo $data["email"] . " , " .$data["motdepasse"];
             echo "Erreur : ".$e->getMessage();
-<<<<<<< Updated upstream
         }
-        redirect(site_url("Admin_controller/index"));
-=======
-            // redirect(site_url("admin_controller/login"));
-        }
-
-
-
->>>>>>> Stashed changes
+        redirect(base_url("Admin_controller/index"));
     }
 }

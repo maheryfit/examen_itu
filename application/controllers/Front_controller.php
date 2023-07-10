@@ -44,6 +44,12 @@ class Front_controller extends Session_controller
         } catch (Exception $e) {
             echo "Erreur : ".$e->getMessage();
         }
-        echo "tongasoaaa ato aminay";
+        redirect(site_url("Front_controller/index"));
     }
+
+    public function logout(){
+        $this->session->sess_destroy();
+        redirect(site_url("Front_controller/login"));
+    }
+
 }
