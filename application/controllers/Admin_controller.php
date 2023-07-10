@@ -18,4 +18,10 @@ class Admin_controller extends CI_Controller {
         $this->data["page"] = "login";
         $this->load->view("admin-page/template-front", $this->data);
     }
+
+    public function register() {
+        $this->data["title"] = "Administrateur";
+        $this->data["page"] = "register";
+        $this->load->view("admin-page/template-admin", $this->data);
+    }
 }
