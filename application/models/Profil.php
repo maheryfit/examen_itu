@@ -142,6 +142,7 @@ class Profil extends CI_Model
         }
     }
 
+
     function escape_post($data) {
         foreach ($data as $key => $item) {
             $data[$key] = $this->db->escape(trim($item));

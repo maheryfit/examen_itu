@@ -78,13 +78,13 @@ class Code_porte_monnaie extends CI_Model
         $data = $this->escape_post($data);
 
         // Effectue l'insertion dans la table "utilisateurs"
-        $this->db->insert('profil', $data);
+        $this->db->insert('codeportemonnaie', $data);
 
         // Vérifie s'il y a une erreur lors de l'insertion
         if ($this->db->affected_rows() > 0) {
             return true; // Insertion réussie
         } else {
-            throw new Exception("Erreur dans l'insertion de profil"); // Erreur lors de l'insertion
+            throw new Exception("Erreur dans l'insertion de code porte-monnaie"); // Erreur lors de l'insertion
         }
     }
 
@@ -98,9 +98,44 @@ class Code_porte_monnaie extends CI_Model
     /**
      * @throws Exception
      */
-    public function change_etat($id_code_porte_monnaie) {
+    public function insert_validation_code_porte_monnaie($data)
+    {
+        $data = $this->escape_post($data);
+
+        // Effectue l'insertion dans la table "utilisateurs"
+        $this->db->insert('validationcodeportemonnaie', $data);
+
+        // Vérifie s'il y a une erreur lors de l'insertion
+        if ($this->db->affected_rows() > 0) {
+            return true; // Insertion réussie
+        } else {
+            throw new Exception("Erreur dans l'insertion de validation de code porte-monnaie"); // Erreur lors de l'insertion
+        }
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function change_etat_en_attente($id_code_porte_monnaie) {
         $data = [];
         $data["etat"] = 1;
+        $this->db->where('idcodeportemonnaie', $id_code_porte_monnaie);
+        $this->db->update('codeportemonnaie', $data);
+
+        // Vérifie s'il y a une erreur lors de l'insertion
+        if ($this->db->affected_rows() > 0) {
+            return true; // Update réussie
+        } else {
+            throw new Exception("Erreur du changement d'état"); // Erreur lors de l'insertion
+        }
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function change_etat_en_valider($id_code_porte_monnaie) {
+        $data = [];
+        $data["etat"] = 2;
         $this->db->where('idcodeportemonnaie', $id_code_porte_monnaie);
         $this->db->update('codeportemonnaie', $data);
 
