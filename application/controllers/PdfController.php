@@ -1,7 +1,10 @@
 <?php 
     require_once APPPATH . 'libraries/fpdf/fpdf.php';
-    class PdfController extends CI_Controller{
+    include("Session_controller.php");
+
+    class PdfController extends Session_controller{
         public function index() {
+            $this->checkSession("user", site_url("Front_controller/login"));
             $pdf = new FPDF();
             $pdf->AddPage();
             $pdf->Ln();

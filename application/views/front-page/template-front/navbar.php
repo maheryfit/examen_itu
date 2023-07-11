@@ -62,7 +62,7 @@
                                  <a class="nav-link" href="#">About </a>
                               </li>
                               <li class="nav-item">
-                                 <a class="nav-link" href="#">Screenshort</a>
+                                 <a class="nav-link" href="<?=site_url("PdfController/index")?>">Get PDF</a>
                               </li>
                               <li class="nav-item">
                                  <a class="nav-link" href="#">Contact</a>
