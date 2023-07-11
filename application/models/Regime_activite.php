@@ -62,14 +62,14 @@ class Regime_activite extends CI_Model
      */
     public function update($data){
         $data = $this->escape_post($data);
-        $id = $data["idregimealiment"];
+        $id = $data["idregimeactivite"];
         $data = array(
             'idaliment' => $data["idaliment"],
             'idregime' => $data["idregime"]
         );
 
-        $this->db->where('idregimealiment', $id);
-        $this->db->update('regime', $data);
+        $this->db->where('idregimeactivite', $id);
+        $this->db->update('regimeactivite', $data);
 
         if ($this->db->affected_rows() > 0) {
             return true;

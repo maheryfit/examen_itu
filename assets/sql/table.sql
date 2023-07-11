@@ -123,6 +123,7 @@ CREATE TABLE Suggestion (
   idregime INT,
   idprofil INT,
   estpaye INT NOT NULL,
+  datesuggestion DATE NOT NULL,
   FOREIGN KEY (idregime) REFERENCES Regime(idregime),
   FOREIGN KEY (idprofil) REFERENCES Profil(idprofil)
 );
