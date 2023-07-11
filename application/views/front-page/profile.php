@@ -9,6 +9,8 @@
                         <h3> Welcome <?=$session["nom"]?> !</h3>
                      <?php }
                   ?>
+
+                  <a href="<?=site_url('PdfController/index')?>">Test pdf</a>
                   <h1>Healthy Food Recipes</h1>
                   <p>There are many variations of passages of Lorem Ipsum available, but the majorityomised words which don't look even slightly believable</p>
                   <a class="read_more" href="#">Read More</a>
