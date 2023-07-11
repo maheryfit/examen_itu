@@ -29,19 +29,7 @@ class Admin_controller extends Session_controller {
     }
 
 
-    public function insererActivite() {
-        $this->checkSession("admin", site_url("Admin_controller/login"));
-        $this->data["title"] = "Administrateur";
-        $this->data["page"] = "insertion-sport";
-        $this->load->view("admin-page/template-admin", $this->data);
-    }
-
-    public function insererAliment() {
-        $this->checkSession("admin", site_url("Admin_controller/login"));
-        $this->data["title"] = "Administrateur";
-        $this->data["page"] = "insertion-aliment";
-        $this->load->view("admin-page/template-admin", $this->data);
-    }
+    
 
     public function log(){
         $this->load->model("Login_model");
@@ -63,27 +51,37 @@ class Admin_controller extends Session_controller {
         redirect(base_url("Admin_controller/index"));
     }
 
-    public function creerRegime() {
+    public function creeregime() {
         $this->data["title"] = "Administrateur";
         $this->data["page"] = "creationRegime";
         $this->load->view("admin-page/template-admin", $this->data);
     }
 
-    public function listeRegime() {
+    public function listeregime() {
         $this->data["title"] = "Administrateur";
         $this->data["page"] = "listeRegime";
         $this->load->view("admin-page/template-admin", $this->data);
     }
 
-    public function listeAliment() {
+    public function aliment() {
+        $this->checkSession("admin", site_url("Admin_controller/login"));
         $this->data["title"] = "Administrateur";
-        $this->data["page"] = "listeAliment";
+        $this->data["page"] = "aliment";
         $this->load->view("admin-page/template-admin", $this->data);
     }
 
-    public function listeActivite() {
+    public function activite() {
+        $this->checkSession("admin", site_url("Admin_controller/login"));
         $this->data["title"] = "Administrateur";
-        $this->data["page"] = "listeActivite";
+        $this->data["page"] = "activite";
         $this->load->view("admin-page/template-admin", $this->data);
     }
+
+    public function regime() {
+        $this->checkSession("admin", site_url("Admin_controller/login"));
+        $this->data["title"] = "Administrateur";
+        $this->data["page"] = "regime";
+        $this->load->view("admin-page/template-admin", $this->data);
+    }
+
 }
