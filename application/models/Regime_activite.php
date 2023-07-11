@@ -83,8 +83,8 @@ class Regime_activite extends CI_Model
      * @throws Exception
      */
     public function delete($id) {
-        $this->db->where('idregimealiment', $id);
-        $this->db->delete('regime');
+        $this->db->where('idregimeactivite', $id);
+        $this->db->delete('regimeactivite');
         if ($this->db->affected_rows() > 0) {
             // La suppression a réussi
             return true;
@@ -96,8 +96,8 @@ class Regime_activite extends CI_Model
 
     public function select_by_id($id) {
         $this->db->select('*');
-        $this->db->where("idregimealiment", $id);
-        $this->db->from("regimealiment");
+        $this->db->where("idregimeactivite", $id);
+        $this->db->from("regimeactivite");
         $query = $this->db->get();
         $query = $query->row_array();
         $regime_aliment = new Regime_aliment();
@@ -110,14 +110,14 @@ class Regime_activite extends CI_Model
     public function select() {
         $tab_retour = [];
         $this->db->select('*');
-        $this->db->from("regime");
+        $this->db->from("regimeactivite");
         $query = $this->db->get();
 
         $results = $query->result_array();
         foreach ($results as $result) {
-            $regime_aliment = new Regime_aliment();
-            $regime_aliment->set_id_regime_aliment($result["idregimealiment"]);
-            $regime_aliment->set_id_aliment($result["idaliment"]);
+            $regime_aliment = new Regime_activite();
+            $regime_aliment->set_id_regime_activite($result["idregimeactivite"]);
+            $regime_aliment->set_id_activite($result["idactivite"]);
             $regime_aliment->set_id_regime($result["idregime"]);
             $tab_retour[] = $regime_aliment;
         }
