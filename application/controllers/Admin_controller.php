@@ -1,13 +1,16 @@
 <?php
+include("Session_controller.php");
 
-class Admin_controller extends CI_Controller {
+class Admin_controller extends Session_controller {
     private $data;
     public function __construct() {
         parent::__construct();
         $this->data = array();
+        
     }
-
+    
     public function index() {
+        $this->checkSession("admin", site_url("Admin_controller/login"));
         $this->data["title"] = "Administrateur";
         $this->data["page"] = "index";
         $this->load->view("admin-page/template-admin", $this->data);
@@ -21,31 +24,37 @@ class Admin_controller extends CI_Controller {
 
 
     public function insererActivite() {
+        $this->checkSession("admin", site_url("Admin_controller/login"));
         $this->data["title"] = "Administrateur";
         $this->data["page"] = "insertion-sport";
         $this->load->view("admin-page/template-admin", $this->data);
     }
 
     public function insererAliment() {
+        $this->checkSession("admin", site_url("Admin_controller/login"));
         $this->data["title"] = "Administrateur";
         $this->data["page"] = "insertion-aliment";
         $this->load->view("admin-page/template-admin", $this->data);
     }
 
     public function log(){
-        $this->load->model("Utilisateur");
-        $data = $this->input->post();
+        $this->load->model("Login_model");
+        $email = $this->input->post("email");
+        $motdepasse = $this->input->post("motdepasse");
 
         try {
-            $rep = $this->Utilisateur->checkLogin($data);
+            $rep = $this->Login_model->logAsAdmin($email,$motdepasse);
+            if($rep == false){
+                echo "tsy misy ";
+                redirect(site_url("admin_controller/login"));             
+            } 
+                
+            $this->session->set_userdata("admin",$rep);
+            redirect(site_url("admin_controller/index"));
         } catch (Exception $e) {
             echo "Erreur : ".$e->getMessage();
-            // redirect(base_url("admin_controller/register"));
         }
-
-        // redirect(base_url("index.php/admin_controller/index"));
-
-
+        redirect(base_url("Admin_controller/index"));
     }
 
     public function creerRegime() {
