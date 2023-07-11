@@ -30,9 +30,6 @@
     <!-- inject:css -->
     <!-- endinject -->
     <!-- Layout styles -->
-
-    
-
     <link rel="stylesheet" href="<?=base_url()?>assets/back/css/style.css">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="<?=base_url()?>assets/back/images/favicon.png" />
@@ -50,7 +47,7 @@
             <div class="profile-desc">
               <div class="profile-pic">
                 <div class="profile-name">
-                  <h5 class="mb-0 font-weight-normal">Henry Klein</h5>
+                  <h5 class="mb-0 font-weight-normal"><a href="<?=site_url("front_controller/logout")?>"><span class="yellow">Log out</a></h5>
                 </div>
               </div>
               <a href="#" id="profile-dropdown" data-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></a>
@@ -82,9 +79,6 @@
                     <div class="preview-icon bg-dark rounded-circle">
                       <i class="mdi mdi-calendar-today text-success"></i>
                     </div>
-                  </div>
-                  <div class="preview-item-content">
-                    <p class="preview-subject ellipsis mb-1 text-small">To-do list</p>
                   </div>
                 </a>
               </div>
