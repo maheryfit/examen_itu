@@ -34,8 +34,8 @@
                                                 <tr> 
                                                     <td> <?= $perte[$i]->get_nom();?> </td>
                                                     <td>
-                                                        <button> <i class="fas fa-trash-alt">  </i> </button>
-                                                        <button> <i class="fas fa-pencil-alt"> </i> </button> 
+                                                        <a href="#"> <i class="fas fa-trash-alt">  </i> </a>
+                                                        <a href="<?= site_url("Admin_controller/to_modif?idactivite=".$perte[$i]->get_id_activite())?> && idcat=2"> <i class="fas fa-pencil-alt"> </i> </a> 
                                                     </td>
                                                 </tr>
                                             <?php } ?>
@@ -63,8 +63,8 @@
                                                 <tr> 
                                                     <td> <?= $prise[$i]->get_nom(); ?></td>
                                                     <td>
-                                                        <button> <i class="fas fa-trash-alt">  </i> </button>
-                                                        <button> <i class="fas fa-pencil-alt"> </i> </button> 
+                                                        <a href="#"> <i class="fas fa-trash-alt">  </i> </a>
+                                                        <a href="<?= site_url("Admin_controller/to_modif?idactivite=".$prise[$i]->get_id_activite())?> && idcat=1"> <i class="fas fa-pencil-alt"> </i> </a> 
                                                     </td>
                                                 </tr>
                                             <?php } ?>
@@ -92,7 +92,7 @@
                                     <input type="text" class="form-control" name="nom" placeholder="nom">
                                 </div>
                                 <button type="submit" class="btn btn-primary mr-2">Enregistrer</button>
-                                <button class="btn btn-dark">Retour</button>
+                                <button class="btn btn-dark"> <a href="<?=site_url("Admin_controller/activite")?>"> Retour</a></button>
                             </form>
                         </div>
                     </div>

@@ -84,6 +84,15 @@ class Activite extends CI_Model {
         $connection = null;
     }
 
+    public function updateactivite($idactivite,$nom,$idcategorie){
+        $connector = new PDO_Connector();
+        $connection = $connector->connect();
+
+        DAO_model::update($connection,"activite","nom='".$nom."', idcategorieregime=".$idcategorie, " idactivite=".$idactivite);
+
+        $connection = null;
+    }
+
     /**
      * @throws Exception
      */

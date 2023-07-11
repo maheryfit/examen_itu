@@ -86,6 +86,32 @@ class Admin_controller extends Session_controller {
         $this->load->view("admin-page/template-admin", $this->data);
     }
 
+    public function modif_activite(){
+        $this->checkSession("admin", site_url("Admin_controller/login"));
+        $this->load->model("Activite");
+        $idactivite = $this->input->get("idactivite");
+
+        $idcategorie = $this->input->post("idcategorie");
+        $nom = $this->input->post("nom");
+
+        $this->Activite->updateactivite($idactivite,$nom,$idcategorie);
+
+        redirect(site_url("Admin_controller/activite"));
+    }
+
+    public function to_modif(){
+        $this->load->model("Activite");
+        $this->load->model("Categorie_regime");
+        $idactivite = $this->input->get("idactivite");
+        $idcat = $this->input->get("idcat");
+        $this->data["title"] = "Modification Activite";
+        $this->data["page"] = "modif_activite";
+        $this->data["idactivite"] = $idactivite;
+        $this->data["activite"] = $this->Activite->select_by_id($idactivite);
+        $this->data["categorie"] = $this->Categorie_regime->select();
+        $this->load->view("admin-page/template-admin", $this->data);
+    }
+
     public function regime() {
         $this->checkSession("admin", site_url("Admin_controller/login"));
         $this->data["title"] = "Administrateur";
