@@ -8,8 +8,25 @@
                 <h3 class="card-title text-left mb-3">Register</h3>
                 <form method="post" action="<?= site_url("Front_controller/inscription")?>">
                   <div class="form-group">
-                    <label>Username</label>
+                    <label>Nom</label>
                     <input type="text" class="form-control p_input" name="nom">
+                  </div>
+                  <div class="form-group">
+                    <label>Prenom</label>
+                    <input type="text" class="form-control p_input" name="prenom">
+                  </div>
+                  <div class="form-group">
+                    <label>Date de naissance</label>
+                    <input type="date" class="form-control p_input" name="datenaissance">
+                  </div>
+                  <div class="form-group">
+                    <label>Genre</label>
+                    <br>
+                    <input type="radio" name="genre" value="2" id="feminin">
+                    <label for="feminin">Feminin</label>
+                    <input type="radio" name="genre" value="1" id="masculin">
+                    <label for="masculin">Masculin</label>
+
                   </div>
                   <div class="form-group">
                     <label>Email</label>
@@ -36,7 +53,6 @@
                       <i class="mdi mdi-google-plus"></i> Google plus </button>
                   </div>
                   <p class="sign-up text-center">Already have an Account?<a href="<?= site_url('front_controller/login')?>"> Sign Up</a></p>
-                  <p class="terms">By creating an account you are accepting our<a href="#"> Terms & Conditions</a></p>
                 </form>
               </div>
             </div>

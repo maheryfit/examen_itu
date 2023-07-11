@@ -62,12 +62,15 @@ class Front_controller extends Session_controller
         $this->load->model("Login_model");
 
         $nom = $this->input->post("nom");
+        $prenom = $this->input->post("prenom");
+        $datenaissance = $this->input->post("datenaissance");
+        $genre = $this->input->post("genre");
         $email = $this->input->post("email");
         $password = $this->input->post("motdepasse");
 
-        $this->Login_model->insertuser($nom,$email,$password);
+        $this->Login_model->insertuser($nom,$prenom,$datenaissance,$genre,$email,$password);
 
-        // redirect(base_url("front_controller/index"));
+        redirect(site_url("front_controller/index"));
     }
 
 }

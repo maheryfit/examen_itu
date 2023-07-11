@@ -79,27 +79,26 @@ CREATE TABLE Profil (
 CREATE TABLE Regime (
   idregime INT PRIMARY KEY AUTO_INCREMENT,
   idcategorieregime INT,
+  nomregime VARCHAR(30) NOT NULL,
   montant DECIMAL(8,2) NOT NULL,
   duree INT NOT NULL,
   poids DECIMAL(5,2) NOT NULL,
   FOREIGN KEY (idcategorieregime) REFERENCES Categorieregime(idcategorieregime)
 );
+INSERT INTO Regime (idcategorieregime, nomregime, montant, duree, poids)
+VALUES (1, 'Régime perte de poids', 15000.00, 30, 70.50);
 
-INSERT INTO Regime (idcategorieregime, montant, duree, poids)
-VALUES (1, 20000.00, 30, 70.50);
+INSERT INTO Regime (idcategorieregime, nomregime, montant, duree, poids)
+VALUES (2, 'Régime prise de masse', 18000.00, 45, 65.20);
 
-INSERT INTO Regime (idcategorieregime, montant, duree, poids)
-VALUES (2, 18000.00, 45, 65.20);
+INSERT INTO Regime (idcategorieregime, nomregime, montant, duree, poids)
+VALUES (1, 'Régime équilibré', 13000.00, 60, 80.00);
 
-INSERT INTO Regime (idcategorieregime, montant, duree, poids)
-VALUES (1, 15000.00, 60, 80.00);
+INSERT INTO Regime (idcategorieregime, nomregime, montant, duree, poids)
+VALUES (2, 'Régime sportif intensif', 22000.00, 30, 68.75);
 
-INSERT INTO Regime (idcategorieregime, montant, duree, poids)
-VALUES (2, 22000.00, 30, 68.75);
-
-INSERT INTO Regime (idcategorieregime, montant, duree, poids)
-VALUES (1, 18000.00, 45, 75.25);
-
+INSERT INTO Regime (idcategorieregime, nomregime, montant, duree, poids)
+VALUES (1, 'Régime detox', 15000.00, 45, 75.25);
 -- Création de la table RegimeAliment
 CREATE TABLE Regimealiment (
   idregimealiment INT PRIMARY KEY AUTO_INCREMENT,
@@ -124,9 +123,13 @@ CREATE TABLE Suggestion (
   idregime INT,
   idprofil INT,
   estpaye INT NOT NULL,
+  datesuggestion DATE NOT NULL,
   FOREIGN KEY (idregime) REFERENCES Regime(idregime),
   FOREIGN KEY (idprofil) REFERENCES Profil(idprofil)
 );
+
+INSERT INTO Suggestion (idregime, idprofil, estpaye, datesuggestion)
+VALUES (1, 1, 1, '2023-07-06');
 
 CREATE TABLE Codeportemonnaie (
     idcodeportemonnaie INT PRIMARY KEY AUTO_INCREMENT,

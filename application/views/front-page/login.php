@@ -39,8 +39,6 @@
                       <i class="mdi mdi-google-plus"></i> Google plus </button>
                   </div>
                   <p class="sign-up">Don't have an Account?<a href="<?= site_url('front_controller/register')?>"> Sign Up</a></p>
-                  <p class="sign-up">Log as <a href="<?= site_url('Admin_controller/login')?>"> Admin</a></p>
-
                 </form>
               </div>
             </div>

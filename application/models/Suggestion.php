@@ -6,7 +6,7 @@ class Suggestion extends CI_Model
     private $id_regime;
     private $id_profil;
     private $est_paye;
-
+    private $date_suggestion;
     public function get_id_suggestion(){
         return $this->id_suggestion;
     }
@@ -18,6 +18,9 @@ class Suggestion extends CI_Model
 
     public function get_id_profil(){
         return $this->id_profil;
+    }
+    public function set_id_profil($id_profil){
+        $this->id_profil = $id_profil;
     }
     public function get_est_paye(){
         return $this->est_paye;
@@ -31,9 +34,6 @@ class Suggestion extends CI_Model
         $this->id_regime = $id_regime;
     }
 
-    public function set_id_profil($id_profil){
-        $this->id_regime = $id_profil;
-    }
 
     public function set_est_paye($est_paye){
         $this->est_paye = $est_paye;
@@ -114,6 +114,7 @@ class Suggestion extends CI_Model
         $suggestion->set_id_suggestion($query["idsuggestion"]);
         $suggestion->set_id_regime($query["idregime"]);
         $suggestion->set_id_profil($query["idprofil"]);
+        $suggestion->set_est_paye($query["datesuggestion"]);
         $suggestion->set_est_paye($query["estpaye"]);
         return $suggestion;
     }
@@ -131,6 +132,7 @@ class Suggestion extends CI_Model
             $suggestion->set_id_regime($result["idregime"]);
             $suggestion->set_id_profil($result["idprofil"]);
             $suggestion->set_est_paye($result["estpaye"]);
+            $suggestion->set_date_suggestion($result["datesuggestion"]);
             $tab_retour[] = $suggestion;
         }
         return $tab_retour;
@@ -141,6 +143,22 @@ class Suggestion extends CI_Model
             $data[$key] = $this->db->escape(trim($item));
         }
         return $data;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function get_date_suggestion()
+    {
+        return $this->date_suggestion;
+    }
+
+    /**
+     * @param mixed $date_suggestion
+     */
+    public function set_date_suggestion($date_suggestion)
+    {
+        $this->date_suggestion = $date_suggestion;
     }
 
 
