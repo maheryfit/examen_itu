@@ -4,6 +4,11 @@
          <div class="row d_flex">
             <div class="col-md-12">
                <div class="text-bg">
+                  <?php
+                     if ($session!=null) { ?>
+                        <h3> Welcome <?=$session["nom"]?> !</h3>
+                     <?php }
+                  ?>
                   <h1>Healthy Food Recipes</h1>
                   <p>There are many variations of passages of Lorem Ipsum available, but the majorityomised words which don't look even slightly believable</p>
                   <a class="read_more" href="#">Read More</a>

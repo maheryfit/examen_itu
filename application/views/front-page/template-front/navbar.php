@@ -8,7 +8,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
       <!-- site metas -->
-      <title>spicy</title>
+      <title><?=$title?></title>
       <meta name="keywords" content="">
       <meta name="description" content="">
       <meta name="author" content="">
@@ -71,7 +71,6 @@
 
                            <div class="Call">
                               <?php if($session!=null) { ?>
-                                 <a href="#"><span class="yellow"><?= $session["nom"] ?></a>
                                  <a href="<?=site_url("Front_controller/logout")?>"><span class="yellow">Log out</a>
                               <?php } else { ?>
                                  <a href="<?=site_url("Front_controller/login") ?>"><span class="yellow">Log In</a>
