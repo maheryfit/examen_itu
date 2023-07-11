@@ -93,4 +93,11 @@ class Front_controller extends Session_controller
         $this->load->view("front-page/template-front", $this->data);
     }
 
+    public function suggestion() {
+        $this->data["title"] = "Front-Office";
+        $this->data["page"] = "suggestion";
+        
+        $this->load->view("front-page/template-front", $this->data);
+    }
+
 }

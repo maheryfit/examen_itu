@@ -49,5 +49,19 @@ class DAO_model extends CI_Model {
         }
     }
 
+    public static function delete($connection,$table,$condition){
+        try {
+            $request = "DELETE FROM $table where $condition" ;
+            echo $request;
+
+            $stm = $connection->exec($request);
+
+            $stm = null;
+            return true;
+        } catch (Exception $e) {
+            return false;
+        }
+    }
+
 }
 

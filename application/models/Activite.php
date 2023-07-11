@@ -93,6 +93,15 @@ class Activite extends CI_Model {
         $connection = null;
     }
 
+    public function deleteactivite($idactivite){
+        $connector = new PDO_Connector();
+        $connection = $connector->connect();
+
+        DAO_model::delete($connection,"activite","idactivite=".$idactivite);
+
+        $connection = null;
+    }
+
     /**
      * @throws Exception
      */
