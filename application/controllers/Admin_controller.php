@@ -124,6 +124,9 @@ class Admin_controller extends Session_controller {
         $this->load->model("Activite");
         $this->data["aprise"] = $this->Activite->selectbyCat(1);
         $this->data["aperte"] = $this->Activite->selectbyCat(2);
+        $this->load->model("Regime");
+        $this->data["be"] = $this->Regime->select_by_cat(1);
+        $this->data["kely"] = $this->Regime->select_by_cat(2);
         $this->load->view("admin-page/template-admin", $this->data);
     }
 
@@ -135,12 +138,44 @@ class Admin_controller extends Session_controller {
         redirect(site_url("admin_controller/aliment"));              
     }
 
+    public function insertperte(){
+        $this->load->model("Regime");
+        $idregime= $this->input->post("kely");
+        $idaliment = $this->input->post("ali");
+        $idactivite = $this->input->post("act");
+        $rep = $this->Regime->insertalimentregime($idaliment,$idregime);
+        $req = $this->Regime->insertactiviteregime($idactivite,$idregime);
+        redirect(site_url("admin_controller/Regime"));              
+    }
+
+    public function insertprise(){
+        $this->load->model("Regime");
+        $idregime= $this->input->post("be");
+        $idaliment = $this->input->post("ali");
+        $idactivite = $this->input->post("act");
+        $rep = $this->Regime->insertalimentregime($idaliment,$idregime);
+        $req = $this->Regime->insertactiviteregime($idactivite,$idregime);
+        redirect(site_url("admin_controller/Regime"));              
+    }
+
     public function insertactivite(){
         $this->load->model("Activite");
         $nom = $this->input->post("nom");
         $id = $this->input->post("idcategorie");
         $rep = $this->Activite->insertactivite($nom,$id);
         redirect(site_url("admin_controller/activite"));              
+    }
+
+    public function insertregime(){
+        $this->load->model("Regime");
+        $id = $this->input->post("cat");
+        $nom = $this->input->post("nom");
+        $montant = $this->input->post("montant");
+        $duree = $this->input->post("duree");
+        $poids = $this->input->post("poids");
+
+        $rep = $this->Regime->insertregime($id,$nom,$montant,$duree,$poids);
+        redirect(site_url("admin_controller/Regime"));              
     }
 
 }
