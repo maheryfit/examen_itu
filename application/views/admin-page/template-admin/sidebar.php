@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="<?=base_url()?>assets/back/vendors/flag-icon-css/css/flag-icon.min.css">
     <link rel="stylesheet" href="<?=base_url()?>assets/back/vendors/owl-carousel-2/owl.carousel.min.css">
     <link rel="stylesheet" href="<?=base_url()?>assets/back/vendors/owl-carousel-2/owl.theme.default.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
     <!-- End plugin css for this page -->
     <!-- inject:css -->

@@ -62,4 +62,22 @@ class Admin_controller extends Session_controller {
         $this->data["page"] = "creationRegime";
         $this->load->view("admin-page/template-admin", $this->data);
     }
+
+    public function listeRegime() {
+        $this->data["title"] = "Administrateur";
+        $this->data["page"] = "listeRegime";
+        $this->load->view("admin-page/template-admin", $this->data);
+    }
+
+    public function listeAliment() {
+        $this->data["title"] = "Administrateur";
+        $this->data["page"] = "listeAliment";
+        $this->load->view("admin-page/template-admin", $this->data);
+    }
+
+    public function listeActivite() {
+        $this->data["title"] = "Administrateur";
+        $this->data["page"] = "listeActivite";
+        $this->load->view("admin-page/template-admin", $this->data);
+    }
 }
