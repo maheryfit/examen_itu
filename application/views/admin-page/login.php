@@ -38,7 +38,6 @@
                     <button class="btn btn-google col">
                       <i class="mdi mdi-google-plus"></i> Google plus </button>
                   </div>
-                  <p class="sign-up">Log as<a href="<?=site_url('Front_controller/login')?>"> User </a></p>
                 </form>
               </div>
             </div>

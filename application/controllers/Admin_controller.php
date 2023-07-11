@@ -51,7 +51,6 @@ class Admin_controller extends Session_controller {
         try {
             $rep = $this->Login_model->logAsAdmin($email,$motdepasse);
             if($rep == false){
-                echo "tsy misy ";
                 redirect(site_url("admin_controller/login?error=Vérifier votre email/mot de passe"));             
             } 
                 
