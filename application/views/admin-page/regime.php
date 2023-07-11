@@ -109,25 +109,25 @@
                                     <input type="number" class="form-control" name="montant" placeholder="montant">
                                 </div>
                                 
-                                <!-- <div class="form-group">
-                                    <label for="activites">Activités:</label>
-                                    <div class="form-check">
-                                        <?php for ($i=0; $i < count($activites); $i++) { ?>
-                                                    <input type="checkbox" name="activites[]">
-                                                    <label value="<?php echo $activites[$i]->get_id_activite();?>"><?php echo $activites[$i]->get_nom();?></label>
-                                        <?php } ?>
-                                    </div>
-                                </div> -->
+                
                                 <button type="submit" class="btn btn-primary mr-2">Enregistrer</button>
                                 <button class="btn btn-dark">Retour</button>
                             </form>
                         </div>
                     </div>
                 </div>
-                <div class="col-ld-6 grid-margin stretch-card">
+                <div class="col-lg-6 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title">Pour la perte</h4>
+                            <div class="form-group">   
+                                    <label for="type"> Type de régime </label>
+                                    <select class="form-control" name="regime">
+                                        <?php for ($i=0; $i < count($regime) ; $i++) { ?>
+                                            <option value="<?php echo $regime[$i]->get_id_regime();?>"> <?php echo $regime[$i]->get_nom_regime();?> </option>
+                                        <?php } ?>
+                                    </select>
+                            </div>
                             <div class="form-group">
                                     <label for="aliments">Aliments:</label>
                                     <div class="form-check">
@@ -146,16 +146,27 @@
                                                     <label value="<?php echo $aperte[$i]->get_id_activite();?>"><?php echo $aperte[$i]->get_nom();?></label>
                                             <?php } ?>
                                     </div>   
-                            </div>  
+                            </div>
+                            <span style="text-align: center;"> 
+                                <button type="submit" class="btn btn-primary mr-2">Enregistrer</button>
+                                <!-- <button class="btn btn-dark">Retour</button> -->
+                            </span>      
                         </div>
-                        <button type="submit" class="btn btn-primary mr-2">Enregistrer</button>
-                        <button class="btn btn-dark">Retour</button>
+                        
                     </div>
                 </div>
                 <div class="col-lg-6 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title">Pour la prise</h4>
+                            <div class="form-group">   
+                                    <label for="type"> Type de régime </label>
+                                    <select class="form-control" name="regime">
+                                        <?php for ($i=0; $i < count($regime) ; $i++) { ?>
+                                            <option value="<?php echo $regime[$i]->get_id_regime();?>"> <?php echo $regime[$i]->get_nom_regime();?> </option>
+                                        <?php } ?>
+                                    </select>
+                            </div>
                             <div class="form-group">
                                     <label for="aliments">Aliments:</label>
                                     <div class="form-check">
@@ -174,10 +185,14 @@
                                                     <label value="<?php echo $aprise[$i]->get_id_activite();?>"><?php echo $aprise[$i]->get_nom();?></label>
                                             <?php } ?>
                                     </div>   
-                            </div>  
+                            </div>
+                            <span style="text-align: center;">
+                                <button type="submit" class="btn btn-primary mr-2">Enregistrer</button>
+                                <!-- <button class="btn btn-dark">Retour</button> -->
+                            </span>  
+                            
                         </div>
-                        <button type="submit" class="btn btn-primary mr-2">Enregistrer</button>
-                        <button class="btn btn-dark">Retour</button>
+                        
                     </div>
                 </div>
             </div>

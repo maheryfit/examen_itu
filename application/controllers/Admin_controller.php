@@ -98,6 +98,9 @@ class Admin_controller extends Session_controller {
         $this->load->model("Activite");
         $this->data["aprise"] = $this->Activite->selectbyCat(1);
         $this->data["aperte"] = $this->Activite->selectbyCat(2);
+        $this->load->model("Regime");
+        $this->data["regime"] = $this->Regime->select();
+        $this->data["regime"] = $this->Regime->select();
         $this->load->view("admin-page/template-admin", $this->data);
     }
 
