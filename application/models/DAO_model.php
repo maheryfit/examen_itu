@@ -38,6 +38,7 @@ class DAO_model extends CI_Model {
     public static function update($connection,$table,$set,$condition){
         try {
             $request = "UPDATE $table set $set where $condition" ;
+            echo $request;
 
             $stm = $connection->exec($request);
 
