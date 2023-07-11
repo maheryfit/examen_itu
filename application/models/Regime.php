@@ -62,6 +62,11 @@ class Regime extends CI_Model
         return $this->Categorie_regime->select_by_id($this->get_id_categorie_regime());
     }
 
+    public function get_utilisateur(){
+        $this->load->model('Utilisateur');
+        return $this->Utilisateur->select_by_id($this->get_id_categorie_regime());
+    }
+
 
     /**
      * @throws Exception
@@ -156,7 +161,7 @@ class Regime extends CI_Model
             $tab_retour[] = $regime;
         }
         return $tab_retour;
-    }
+    }  
 
     function escape_post($data) {
         foreach ($data as $key => $item) {
