@@ -1,8 +1,9 @@
 <?php 
     require_once APPPATH . 'libraries/fpdf/fpdf.php';
-    include("Session_controller.php");
+require_once APPPATH . 'libraries/fpdf/font/symbol.php';
+   include("Session_controller.php");
 
-    class PdfController extends Session_controller{
+    class Pdfcontroller extends Session_controller{
         public function index() {
             $this->checkSession("user", site_url("Front_controller/login"));
             $pdf = new FPDF();
@@ -19,7 +20,7 @@
                 $pdf->SetFillColor(90, 47, 39);;
                 $pdf->Cell(60, 15, 'NomRegime', 1, 0, 'L', true);
                 $pdf->Cell(50, 15, 'Montant', 1, 0, 'L', true);
-                $pdf->Cell(30, 15, 'Duree', 1, 0, 'L', true);
+                $pdf->Cell(30, 15, 'Durée', 1, 0, 'L', true);
                 $pdf->Cell(30, 15, 'poids', 1, 0, 'L', true);
                 $pdf->Ln();
         
