@@ -65,6 +65,13 @@ CREATE TABLE Utilisateur (
   FOREIGN KEY (idgenre) REFERENCES Genre(idgenre)
 );
 
+INSERT INTO Utilisateur(nom,prenom,email,datenaissance,dateenregistrement,idgenre,motdepasse,isadmin) VALUES ('Jeannot','Rabekoto','rabekoto@gmail.com','1999-07-11','2023-07-11',2,'rabekoto',1);
+INSERT INTO Utilisateur(nom,prenom,email,datenaissance,dateenregistrement,idgenre,motdepasse,isadmin) VALUES ('Soatiana','Rabemananjary','koto@gmail.com','1997-07-11','2023-07-11',2,'rabemakoto',1);
+INSERT INTO Utilisateur(nom,prenom,email,datenaissance,dateenregistrement,idgenre,motdepasse,isadmin) VALUES ('Soatiana','Razy','bema@gmail.com','2002-07-11','2023-07-11',1,'soatiana',0);
+INSERT INTO Utilisateur(nom,prenom,email,datenaissance,dateenregistrement,idgenre,motdepasse,isadmin) VALUES ('Manda','Razaka','razaka@gmail.com','2004-07-11','2023-07-11',1,'razaka',0);
+INSERT INTO Utilisateur(nom,prenom,email,datenaissance,dateenregistrement,idgenre,motdepasse,isadmin) VALUES ('Mika','Rabenahary','mikakely@gmail.com','1995-07-11','2023-07-11',2,'mikarabena',0);
+
+
 -- Création de la table Profil
 CREATE TABLE Profil (
   idprofil INT PRIMARY KEY AUTO_INCREMENT,
