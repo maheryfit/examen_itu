@@ -35,7 +35,7 @@ class Frontcontroller extends Sessioncontroller
     }
 
     public function log(){
-        $this->load->model("Login_model");
+        $this->load->model("Loginmodel");
         $email = $this->input->post("email");
         $motdepasse = $this->input->post("motdepasse");
 
@@ -58,7 +58,7 @@ class Frontcontroller extends Sessioncontroller
     }
 
     public function inscription(){
-        $this->load->model("Login_model");
+        $this->load->model("Loginmodel");
 
         $nom = $this->input->post("nom");
         $prenom = $this->input->post("prenom");
@@ -88,7 +88,7 @@ class Frontcontroller extends Sessioncontroller
         $this->data["session"] = $this->session->user;
         $this->data["title"] = "Front-Office";
         $this->data["page"] = "donnee";
-        $this->load->model("Categorie_regime");
+        $this->load->model("Categorieregime");
         $this->data["categorie"] = $this->Categorie_regime->select();
         $this->load->view("front-page/template-front", $this->data);
     }

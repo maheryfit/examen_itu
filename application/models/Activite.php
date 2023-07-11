@@ -3,8 +3,8 @@
 class Activite extends CI_Model {
     public function __construct()
     {
-        $this->load->model("PDO_Connector");
-        $this->load->model("DAO_model");
+        $this->load->model("Pdoconnector");
+        $this->load->model("Daomodel");
     }
     private $id_activite;
     private $nom;
@@ -76,28 +76,28 @@ class Activite extends CI_Model {
 
     public function insertactivite($nom,$idcategorie)
     {
-        $connector = new PDO_Connector();
+        $connector = new Pdoconnector();
         $connection = $connector->connect();
 
-        DAO_model::insert($connection,"activite (idactivite,nom,idcategorieregime)","default,'$nom',$idcategorie");
+        Daomodel::insert($connection,"activite (idactivite,nom,idcategorieregime)","default,'$nom',$idcategorie");
 
         $connection = null;
     }
 
     public function updateactivite($idactivite,$nom,$idcategorie){
-        $connector = new PDO_Connector();
+        $connector = new Pdoconnector();
         $connection = $connector->connect();
 
-        DAO_model::update($connection,"activite","nom='".$nom."', idcategorieregime=".$idcategorie, " idactivite=".$idactivite);
+        Daomodel::update($connection,"activite","nom='".$nom."', idcategorieregime=".$idcategorie, " idactivite=".$idactivite);
 
         $connection = null;
     }
 
     public function deleteactivite($idactivite){
-        $connector = new PDO_Connector();
+        $connector = new Pdoconnector();
         $connection = $connector->connect();
 
-        DAO_model::delete($connection,"activite","idactivite=".$idactivite);
+        Daomodel::delete($connection,"activite","idactivite=".$idactivite);
 
         $connection = null;
     }
@@ -191,7 +191,7 @@ class Activite extends CI_Model {
 
     public function get_categorie_regime()
     {
-        $this->load->model('Categorie_regime');
+        $this->load->model('Categorieregime');
         return $this->Categorie_regime->select_by_id($this->get_id_categorie_regime());
     }
 

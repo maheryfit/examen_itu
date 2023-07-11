@@ -96,7 +96,7 @@
             </a>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="<?=site_url()?>/admin_controller/activite">
+            <a class="nav-link" href="<?=site_url()?>/admincontroller/activite">
               <span class="menu-icon">
                 <i class="fas fa-futbol"></i>
               </span>
@@ -104,7 +104,7 @@
             </a>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="<?=site_url()?>/admin_controller/regime">
+            <a class="nav-link" href="<?=site_url()?>/admincontroller/regime">
               <span class="menu-icon">
                 <i class="fas fa-utensils"></i>
               </span>

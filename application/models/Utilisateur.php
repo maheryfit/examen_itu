@@ -105,10 +105,10 @@ class Utilisateur extends CI_Model {
 
     public  function  log($email,$password){
         //create connection
-        $connector = new PDO_Connector();
+        $connector = new Pdoconnector();
         $connection = $connector->connect();
 
-        $user = DAO_model::selectAll($connection,"regime"," email='$email' and motdepasse = '$password' ");
+        $user = Daomodel::selectAll($connection,"regime"," email='$email' and motdepasse = '$password' ");
 
         if (count($user) != 0) return $user[0];
 

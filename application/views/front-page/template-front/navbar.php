@@ -74,9 +74,9 @@
 
                            <div class="Call">
                               <?php if($session!=null) { ?>
-                                 <a href="<?=site_url("front_controller/logout")?>"><span class="yellow">Log out</a>
+                                 <a href="<?=site_url("frontcontroller/logout")?>"><span class="yellow">Log out</a>
                               <?php } else { ?>
-                                 <a href="<?=site_url("front_controller/login") ?>"><span class="yellow">Log In</a>
+                                 <a href="<?=site_url("frontcontroller/login") ?>"><span class="yellow">Log In</a>
                               <?php } ?>
                            </div>
                         </div>

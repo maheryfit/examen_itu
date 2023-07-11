@@ -1,6 +1,6 @@
 <?php
 
-class Categorie_regime extends CI_Model
+class Categorieregime extends CI_Model
 {
     private $id_categorie_regime;
     private $nom;
@@ -46,7 +46,7 @@ class Categorie_regime extends CI_Model
 
         $results = $query->result_array();
         foreach ($results as $result) {
-            $categorie = new Categorie_regime();
+            $categorie = new Categorieregime();
             $categorie->set_nom($result["nom"]);
             $categorie->set_id_categorie_regime($result["idcategorieregime"]);
             $tab_retour[] = $categorie;
@@ -60,7 +60,7 @@ class Categorie_regime extends CI_Model
         $this->db->from("categorieregime");
         $query = $this->db->get();
         $query =$query->row_array();
-        $categorie = new Categorie_regime();
+        $categorie = new Categorieregime();
         $categorie->set_nom($query["nom"]);
         $categorie->set_id_categorie_regime($query["idcategorieregime"]);
         return $categorie;

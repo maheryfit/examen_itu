@@ -33,7 +33,7 @@ class Admincontroller extends Sessioncontroller {
     
 
     public function log(){
-        $this->load->model("Login_model");
+        $this->load->model("Loginmodel");
         $email = $this->input->post("email");
         $motdepasse = $this->input->post("motdepasse");
 
@@ -63,7 +63,7 @@ class Admincontroller extends Sessioncontroller {
     public function listeregime() {
         $this->checkSession("admin", site_url("Admincontroller/login"));
         $this->data["title"] = "Administrateur";
-        $this->data["page"] = "listeRegime";
+        $this->data["page"] = "listeregime";
         $this->data["session"] = $this->session->admin;
 
         $this->load->view("admin-page/template-admin", $this->data);
@@ -73,7 +73,7 @@ class Admincontroller extends Sessioncontroller {
         $this->checkSession("admin", site_url("admincontroller/login"));
         $this->data["title"] = "Administrateur";
         $this->data["page"] = "aliment";
-        $this->load->model("Categorie_regime");
+        $this->load->model("Categorieregime");
         $this->data["categorie"] = $this->Categorie_regime->select();
         $this->load->model("Aliment");
         $this->data["prise"] = $this->Aliment->selectbyCat(1);
@@ -86,7 +86,7 @@ class Admincontroller extends Sessioncontroller {
         $this->checkSession("admin", site_url("admincontroller/login"));
         $this->data["title"] = "Administrateur";
         $this->data["page"] = "activite";
-        $this->load->model("Categorie_regime");
+        $this->load->model("Categorieregime");
         $this->data["categorie"] = $this->Categorie_regime->select();
         $this->load->model("Activite");
         $this->data["prise"] = $this->Activite->selectbyCat(1);
@@ -95,7 +95,7 @@ class Admincontroller extends Sessioncontroller {
         $this->load->view("admin-page/template-admin", $this->data);
     }
 
-    public function modif_activite(){
+    public function modifactivite(){
         $this->checkSession("admin", site_url("Admincontroller/login"));
         $this->load->model("Activite");
         $idactivite = $this->input->get("idactivite");
@@ -108,10 +108,10 @@ class Admincontroller extends Sessioncontroller {
         redirect(site_url("admincontroller/activite"));
     }
 
-    public function to_modifactivite(){
+    public function tomodifactivite(){
         $this->checkSession("admin", site_url("Admincontroller/login"));
         $this->load->model("Activite");
-        $this->load->model("Categorie_regime");
+        $this->load->model("Categorieregime");
         $idactivite = $this->input->get("idactivite");
         $idcat = $this->input->get("idcat");
         $this->data["title"] = "Modification Activite";
@@ -130,7 +130,7 @@ class Admincontroller extends Sessioncontroller {
         $this->Activite->deleteactivite($idactivite);
         $this->data["session"] = $this->session->admin;
 
-        redirect(site_url("Admincontroller/activite"));
+        redirect(site_url("admincontroller/activite"));
     }
 
     public function deletealiment(){
@@ -144,7 +144,7 @@ class Admincontroller extends Sessioncontroller {
     }
 
 
-    public function modif_aliment(){
+    public function modifaliment(){
         $this->checkSession("admin", site_url("Admincontroller/login"));
         $this->checkSession("admin", site_url("Admincontroller/login"));
         $this->load->model("Aliment");
@@ -155,13 +155,13 @@ class Admincontroller extends Sessioncontroller {
 
         $this->Aliment->updatealiment($idaliment,$nom,$idcategorie);
         $this->data["session"] = $this->session->admin;
-        redirect(site_url("Admincontroller/aliment"));
+        redirect(site_url("admincontroller/aliment"));
     }
 
-    public function to_modifaliment(){
+    public function tomodifaliment(){
         $this->checkSession("admin", site_url("Admincontroller/login"));
         $this->load->model("Aliment");
-        $this->load->model("Categorie_regime");
+        $this->load->model("Categorieregime");
         $idaliment= $this->input->get("idaliment");
         $idcat = $this->input->get("idcat");
         $this->data["title"] = "Modification aliment";
@@ -178,7 +178,7 @@ class Admincontroller extends Sessioncontroller {
         $this->checkSession("admin", site_url("Admincontroller/login"));
         $this->data["title"] = "Administrateur";
         $this->data["page"] = "regime";
-        $this->load->model("Categorie_regime");
+        $this->load->model("Categorieregime");
         $this->data["categorie"] = $this->Categorie_regime->select();
         $this->load->model("Aliment");
         $this->data["prise"] = $this->Aliment->selectbyCat(1);
@@ -210,7 +210,7 @@ class Admincontroller extends Sessioncontroller {
         $idactivite = $this->input->post("act");
         $rep = $this->Regime->insertalimentregime($idaliment,$idregime);
         $req = $this->Regime->insertactiviteregime($idactivite,$idregime);
-        redirect(site_url("admincontroller/Regime"));
+        redirect(site_url("admincontroller/regime"));
     }
 
     public function insertprise(){
@@ -221,7 +221,7 @@ class Admincontroller extends Sessioncontroller {
         $idactivite = $this->input->post("act");
         $rep = $this->Regime->insertalimentregime($idaliment,$idregime);
         $req = $this->Regime->insertactiviteregime($idactivite,$idregime);
-        redirect(site_url("admincontroller/Regime"));
+        redirect(site_url("admincontroller/regime"));
     }
 
     public function insertactivite(){

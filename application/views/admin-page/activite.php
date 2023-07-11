@@ -34,8 +34,8 @@
                                                 <tr> 
                                                     <td> <?= $perte[$i]->get_nom();?> </td>
                                                     <td>
-                                                        <a href="<?= site_url("Admincontroller/deleteactivite?idactivite=".$perte[$i]->get_id_activite())?>"> <i class="fas fa-trash-alt"> </i> </a>
-                                                        <a href="<?= site_url("Admincontroller/to_modifactivite?idactivite=".$perte[$i]->get_id_activite())?> && idcat=2"> <i class="fas fa-pencil-alt"> </i> </a>
+                                                        <a href="<?= site_url("admincontroller/deleteactivite?idactivite=".$perte[$i]->get_id_activite())?>"> <i class="fas fa-trash-alt"> </i> </a>
+                                                        <a href="<?= site_url("admincontroller/tomodifactivite?idactivite=".$perte[$i]->get_id_activite())?> && idcat=2"> <i class="fas fa-pencil-alt"> </i> </a>
                                                     </td>
                                                 </tr>
                                             <?php } ?>
@@ -63,8 +63,8 @@
                                                 <tr> 
                                                     <td> <?= $prise[$i]->get_nom(); ?></td>
                                                     <td>
-                                                        <a href="<?= site_url("Admincontroller/deleteactivite?idactivite=".$prise[$i]->get_id_activite())?>"> <i class="fas fa-trash-alt"> </i> </a>
-                                                        <a href="<?= site_url("Admincontroller/to_modifactivite?idactivite=".$prise[$i]->get_id_activite())?> && idcat=1"> <i class="fas fa-pencil-alt"> </i> </a>
+                                                        <a href="<?= site_url("admincontroller/deleteactivite?idactivite=".$prise[$i]->get_id_activite())?>"> <i class="fas fa-trash-alt"> </i> </a>
+                                                        <a href="<?= site_url("admincontroller/tomodifactivite?idactivite=".$prise[$i]->get_id_activite())?> && idcat=1"> <i class="fas fa-pencil-alt"> </i> </a>
                                                     </td>
                                                 </tr>
                                             <?php } ?>
@@ -78,7 +78,7 @@
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title">Ajouter une activité</h4>
-                            <form class="forms-sample" method="post" action="<?=site_url('Admincontroller/insertactivite')?>">
+                            <form class="forms-sample" method="post" action="<?=site_url('admincontroller/insertactivite')?>">
                                 <div class="form-group">   
                                     <label for="type"> Type de régime </label>
                                     <select class="form-control" name="idcategorie">
@@ -92,7 +92,7 @@
                                     <input type="text" class="form-control" name="nom" placeholder="nom">
                                 </div>
                                 <button type="submit" class="btn btn-primary mr-2">Enregistrer</button>
-                                <button class="btn btn-dark"> <a href="<?=site_url("Admincontroller/activite")?>"> Retour</a></button>
+                                <button class="btn btn-dark"> <a href="<?=site_url("admincontroller/activite")?>"> Retour</a></button>
                             </form>
                         </div>
                     </div>

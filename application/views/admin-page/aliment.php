@@ -33,8 +33,8 @@
                                                 <tr> 
                                                     <td> <?=$perte[$i]->get_nom()?>  </td>
                                                     <td>
-                                                        <a href="<?= site_url("Admincontroller/deletealiment?idaliment=".$perte[$i]->get_id_aliment())?>"> <i class="fas fa-trash-alt"> </i> </a>
-                                                        <a href="<?= site_url("Admincontroller/to_modifaliment?idaliment=".$perte[$i]->get_id_aliment())?> && idcat=2"> <i class="fas fa-pencil-alt"> </i></a>
+                                                        <a href="<?= site_url("admincontroller/deletealiment?idaliment=".$perte[$i]->get_id_aliment())?>"> <i class="fas fa-trash-alt"> </i> </a>
+                                                        <a href="<?= site_url("admincontroller/tomodifaliment?idaliment=".$perte[$i]->get_id_aliment())?> && idcat=2"> <i class="fas fa-pencil-alt"> </i></a>
                                                     </td>
                                                 </tr>
                                             <?php } ?>
@@ -63,8 +63,8 @@
                                                 <tr> 
                                                     <td> <?=$prise[$i]->get_nom()?> </td>
                                                     <td>
-                                                        <a href="<?= site_url("Admincontroller/deletealiment?idaliment=".$prise[$i]->get_id_aliment())?>"> <i class="fas fa-trash-alt"> </i> </a>
-                                                        <a href="<?= site_url("Admincontroller/to_modifaliment?idaliment=".$prise[$i]->get_id_aliment())?> && idcat=2"> <i class="fas fa-pencil-alt"> </i> </a>
+                                                        <a href="<?= site_url("admincontroller/deletealiment?idaliment=".$prise[$i]->get_id_aliment())?>"> <i class="fas fa-trash-alt"> </i> </a>
+                                                        <a href="<?= site_url("admincontroller/tomodifaliment?idaliment=".$prise[$i]->get_id_aliment())?> && idcat=2"> <i class="fas fa-pencil-alt"> </i> </a>
                                                     </td>
                                                 </tr>
                                             <?php } ?>
@@ -78,7 +78,7 @@
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title">Ajouter un aliment</h4>
-                            <form class="forms-sample" method="post" action="<?=site_url('Admincontroller/insertaliment')?>">
+                            <form class="forms-sample" method="post" action="<?=site_url('admincontroller/insertaliment')?>">
                                 <div class="form-group">   
                                     <label for="type"> Type de régime </label>
                                     <select class="form-control" name="idcategorie">

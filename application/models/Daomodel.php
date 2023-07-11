@@ -1,5 +1,5 @@
 <?php
-class DAO_model extends CI_Model {
+class Daomodel extends CI_Model {
 
     public static function selectAll($connection,$table,$condition = "")
     {

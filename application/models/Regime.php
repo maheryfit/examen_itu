@@ -5,8 +5,8 @@ class Regime extends CI_Model
 {
     public function __construct()
     {
-        $this->load->model("PDO_Connector");
-        $this->load->model("DAO_model");
+        $this->load->model("Pdoconnector");
+        $this->load->model("Daomodel");
     }
     private $id_regime;
     private $id_categorie_regime;
@@ -63,7 +63,7 @@ class Regime extends CI_Model
     }
 
     public function get_categorie_regime(){
-        $this->load->model('Categorie_regime');
+        $this->load->model('Categorieregime');
         return $this->Categorie_regime->select_by_id($this->get_id_categorie_regime());
     }
 
@@ -149,10 +149,10 @@ class Regime extends CI_Model
     }
     public function insertregime($idcategorie,$nom,$montant,$duree,$poids)
     {
-        $connector = new PDO_Connector();
+        $connector = new Pdoconnector();
         $connection = $connector->connect();
 
-        DAO_model::insert($connection,"regime (idregime,idcategorieregime,nomregime,montant,duree,poids)","default,$idcategorie,'$nom',$montant,$duree,$poids");
+        Daomodel::insert($connection,"regime (idregime,idcategorieregime,nomregime,montant,duree,poids)","default,$idcategorie,'$nom',$montant,$duree,$poids");
 
         $connection = null;
     }
@@ -160,20 +160,20 @@ class Regime extends CI_Model
 
     public function insertalimentregime($idaliment,$idregime)
     {
-        $connector = new PDO_Connector();
+        $connector = new Pdoconnector();
         $connection = $connector->connect();
 
-        DAO_model::insert($connection,"regimealiment (idregimealiment,idaliment,idregime)","default,$idaliment,$idregime");
+        Daomodel::insert($connection,"regimealiment (idregimealiment,idaliment,idregime)","default,$idaliment,$idregime");
 
         $connection = null;
     }
 
     public function insertactiviteregime($idactivite,$idregime)
     {
-        $connector = new PDO_Connector();
+        $connector = new Pdoconnector();
         $connection = $connector->connect();
 
-        DAO_model::insert($connection,"regimeactivite (idregimeactivite,idactivite,idregime)","default,$idactivite,$idregime");
+        Daomodel::insert($connection,"regimeactivite (idregimeactivite,idactivite,idregime)","default,$idactivite,$idregime");
 
         $connection = null;
     }

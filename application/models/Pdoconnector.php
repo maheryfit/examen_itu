@@ -1,5 +1,5 @@
 <?php
-class PDO_Connector extends CI_Controller
+class Pdoconnector extends CI_Controller
 {
     private $host = "localhost";
     private $dbname = 'regime';

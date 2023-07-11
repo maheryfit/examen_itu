@@ -4,8 +4,8 @@ class Aliment extends CI_Model
 {
     public function __construct()
     {
-        $this->load->model("PDO_Connector");
-        $this->load->model("DAO_model");
+        $this->load->model("Pdoconnector");
+        $this->load->model("Daomodel");
     }
     private $id_aliment;
     private $nom;
@@ -53,7 +53,7 @@ class Aliment extends CI_Model
 
     public function get_categorie_regime()
     {
-        $this->load->model('Categorie_regime');
+        $this->load->model('Categorieregime');
         return $this->Categorie_regime->select_by_id($this->get_id_categorie_regime());
     }
 
@@ -83,10 +83,10 @@ class Aliment extends CI_Model
 
     public function insertaliment($nom,$idcategorie)
     {
-        $connector = new PDO_Connector();
+        $connector = new Pdoconnector();
         $connection = $connector->connect();
 
-        DAO_model::insert($connection,"aliment (idaliment,nom,idcategorieregime)","default,'$nom',$idcategorie");
+        Daomodel::insert($connection,"aliment (idaliment,nom,idcategorieregime)","default,'$nom',$idcategorie");
 
         $connection = null;
     }
@@ -114,19 +114,19 @@ class Aliment extends CI_Model
     }
 
     public function updatealiment($idaliment,$nom,$idcategorie){
-        $connector = new PDO_Connector();
+        $connector = new Pdoconnector();
         $connection = $connector->connect();
 
-        DAO_model::update($connection,"aliment","nom='".$nom."', idcategorieregime=".$idcategorie, " idaliment=".$idaliment);
+        Daomodel::update($connection,"aliment","nom='".$nom."', idcategorieregime=".$idcategorie, " idaliment=".$idaliment);
 
         $connection = null;
     }
 
     public function deletealiment($idaliment){
-        $connector = new PDO_Connector();
+        $connector = new Pdoconnector();
         $connection = $connector->connect();
 
-        DAO_model::delete($connection,"aliment","idaliment=".$idaliment);
+        Daomodel::delete($connection,"aliment","idaliment=".$idaliment);
 
         $connection = null;
     }
