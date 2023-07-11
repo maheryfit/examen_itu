@@ -79,11 +79,26 @@ CREATE TABLE Profil (
 CREATE TABLE Regime (
   idregime INT PRIMARY KEY AUTO_INCREMENT,
   idcategorieregime INT,
-  montant DECIMAL(6,2) NOT NULL,
+  montant DECIMAL(8,2) NOT NULL,
   duree INT NOT NULL,
   poids DECIMAL(5,2) NOT NULL,
   FOREIGN KEY (idcategorieregime) REFERENCES Categorieregime(idcategorieregime)
 );
+
+INSERT INTO Regime (idcategorieregime, montant, duree, poids)
+VALUES (1, 20000.00, 30, 70.50);
+
+INSERT INTO Regime (idcategorieregime, montant, duree, poids)
+VALUES (2, 18000.00, 45, 65.20);
+
+INSERT INTO Regime (idcategorieregime, montant, duree, poids)
+VALUES (1, 15000.00, 60, 80.00);
+
+INSERT INTO Regime (idcategorieregime, montant, duree, poids)
+VALUES (2, 22000.00, 30, 68.75);
+
+INSERT INTO Regime (idcategorieregime, montant, duree, poids)
+VALUES (1, 18000.00, 45, 75.25);
 
 -- Création de la table RegimeAliment
 CREATE TABLE Regimealiment (
@@ -116,9 +131,54 @@ CREATE TABLE Suggestion (
 CREATE TABLE Codeportemonnaie (
     idcodeportemonnaie INT PRIMARY KEY AUTO_INCREMENT,
     code VARCHAR(10) NOT NULL UNIQUE,
-    montant DECIMAL(6,2) NOT NULL,
+    montant DECIMAL(10,2) NOT NULL,
     etat INT NOT NULL
 );
+
+INSERT INTO Codeportemonnaie (code, montant, etat)
+VALUES ('ABC123', 15000.0, 0);
+
+INSERT INTO Codeportemonnaie (code, montant, etat)
+VALUES ('DEF456', 18000.0, 0);
+
+INSERT INTO Codeportemonnaie (code, montant, etat)
+VALUES ('GHI789', 20000.0, 0);
+
+INSERT INTO Codeportemonnaie (code, montant, etat)
+VALUES ('JKL012', 22000.0, 0);
+
+INSERT INTO Codeportemonnaie (code, montant, etat)
+VALUES ('MNO345', 25000.0, 0);
+
+INSERT INTO Codeportemonnaie (code, montant, etat)
+VALUES ('PQR678', 28000.0, 0);
+
+INSERT INTO Codeportemonnaie (code, montant, etat)
+VALUES ('STU901', 15050.0, 0);
+
+INSERT INTO Codeportemonnaie (code, montant, etat)
+VALUES ('VWX234', 17500.0, 0);
+
+INSERT INTO Codeportemonnaie (code, montant, etat)
+VALUES ('YZA567', 19800.0, 0);
+
+INSERT INTO Codeportemonnaie (code, montant, etat)
+VALUES ('BCD890', 22500.0, 0);
+
+INSERT INTO Codeportemonnaie (code, montant, etat)
+VALUES ('EFG123', 24000.0, 0);
+
+INSERT INTO Codeportemonnaie (code, montant, etat)
+VALUES ('HIJ456', 26500.0, 0);
+
+INSERT INTO Codeportemonnaie (code, montant, etat)
+VALUES ('KLM789', 28000.0, 0);
+
+INSERT INTO Codeportemonnaie (code, montant, etat)
+VALUES ('NOP012', 30000.0, 0);
+
+INSERT INTO Codeportemonnaie (code, montant, etat)
+VALUES ('QRS345', 32000.0, 0);
 
 
 CREATE TABLE Validationcodeportemonnaie (

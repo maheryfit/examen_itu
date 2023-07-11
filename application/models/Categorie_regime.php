@@ -59,7 +59,7 @@ class Categorie_regime extends CI_Model
         $this->db->where("idcategorieregime", $id);
         $this->db->from("categorieregime");
         $query = $this->db->get();
-        $query = $query->row();
+        $query =$query->row_array();
         $categorie = new Categorie_regime();
         $categorie->set_nom($query["nom"]);
         $categorie->set_id_categorie_regime($query["idcategorieregime"]);
