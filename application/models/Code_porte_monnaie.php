@@ -119,6 +119,45 @@ class Code_porte_monnaie extends CI_Model
     /**
      * @throws Exception
      */
+    public function insert_porte_monnaie($data)
+    {
+        $data = $this->escape_post($data);
+        // Effectue l'insertion dans la table "utilisateurs"
+        $this->db->insert('portemonnaie', $data);
+
+        // Vérifie s'il y a une erreur lors de l'insertion
+        if ($this->db->affected_rows() > 0) {
+            return true; // Insertion réussie
+        } else {
+            throw new Exception("Erreur dans l'insertion de validation de code porte-monnaie"); // Erreur lors de l'insertion
+        }
+    }
+
+
+    public function insert_en_attente_all($idcodeportemonnaie, $idutilisateur, $datevalidation){
+        $data = array();
+        $data["idcodeportemonnaie"] = $idcodeportemonnaie;
+        $data["idutilisateur"] = $idutilisateur;
+        $data["datevalidation"] = $datevalidation;
+        $data = $this->escape_post($data);
+        $this->insert_validation_code_porte_monnaie($data);
+        return $this->change_etat_en_attente($data["idcodeportemonnaie"]);
+    }
+
+    public function insert_en_validation_all($idcodeportemonnaie, $idutilisateur, $datevalidation){
+        $data = array();
+        $data["idcodeportemonnaie"] = $idcodeportemonnaie;
+        $data["idutilisateur"] = $idutilisateur;
+        $data["datevalidation"] = $datevalidation;
+        $data = $this->escape_post($data);
+        $this->insert_validation_code_porte_monnaie($data);
+        return $this->change_etat_en_valider($data["idcodeportemonnaie"]);
+    }
+
+
+    /**
+     * @throws Exception
+     */
     public function change_etat_en_attente($id_code_porte_monnaie) {
         $data = [];
         $data["etat"] = 1;

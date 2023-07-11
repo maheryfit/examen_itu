@@ -79,6 +79,7 @@ CREATE TABLE Profil (
 CREATE TABLE Regime (
   idregime INT PRIMARY KEY AUTO_INCREMENT,
   idcategorieregime INT,
+  nomregime VARCHAR(30) NOT NULL,
   montant DECIMAL(8,2) NOT NULL,
   duree INT NOT NULL,
   poids DECIMAL(5,2) NOT NULL,
@@ -185,6 +186,14 @@ CREATE TABLE Validationcodeportemonnaie (
     idcodeportemonnaie INT NOT NULL,
     idutilisateur INT NOT NULL,
     datevalidation DATE NOT NULL,
+    FOREIGN KEY (idcodeportemonnaie) REFERENCES Codeportemonnaie(idcodeportemonnaie),
+    FOREIGN KEY (idutilisateur) REFERENCES Utilisateur(idutilisateur)
+);
+
+CREATE TABLE Portemonnaie(
+    idcodeportemonnaie INT NOT NULL,
+    idutilisateur INT NOT NULL,
+    montant DECIMAL(9, 2),
     FOREIGN KEY (idcodeportemonnaie) REFERENCES Codeportemonnaie(idcodeportemonnaie),
     FOREIGN KEY (idutilisateur) REFERENCES Utilisateur(idutilisateur)
 );
