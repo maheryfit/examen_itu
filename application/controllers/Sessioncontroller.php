@@ -6,7 +6,7 @@ class Sessioncontroller extends  CI_Controller
     {
         parent::__construct();
     }
-    public function checkSession($sessionName,$redirect_page)
+    public function checksession($sessionName,$redirect_page)
     {
         if(! $this->session->has_userdata($sessionName)) redirect($redirect_page);
     }

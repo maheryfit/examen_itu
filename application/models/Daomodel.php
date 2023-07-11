@@ -1,7 +1,7 @@
 <?php
 class Daomodel extends CI_Model {
 
-    public static function selectAll($connection,$table,$condition = "")
+    public static function selectall($connection,$table,$condition = "")
     {
         $query = "SELECT * FROM $table ";
         if (strlen($condition) != 0) $query = $query." where $condition";

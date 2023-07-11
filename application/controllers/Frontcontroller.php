@@ -40,7 +40,7 @@ class Frontcontroller extends Sessioncontroller
         $motdepasse = $this->input->post("motdepasse");
 
         try {
-            $rep = $this->Login_model->log($email,$motdepasse);
+            $rep = $this->Loginmodel->log($email,$motdepasse);
             if($rep == false){
                 redirect(site_url("frontcontroller/login?error=Vérifier votre email/mot de passe"));
             } 
@@ -67,10 +67,10 @@ class Frontcontroller extends Sessioncontroller
         $email = $this->input->post("email");
         $password = $this->input->post("motdepasse");
 
-        $this->Login_model->insertuser($nom,$prenom,$datenaissance,$genre,$email,$password);
+        $this->Loginmodel->insertuser($nom,$prenom,$datenaissance,$genre,$email,$password);
 
         try {
-            $rep = $this->Login_model->log($email,$password);
+            $rep = $this->Loginmodel->log($email,$password);
             if($rep == false){
                 redirect(site_url("frontcontroller/login?error=Vérifier votre email/mot de passe"));
             } 

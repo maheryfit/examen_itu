@@ -8,20 +8,20 @@ class Loginmodel extends  CI_Model{
         $this->load->model("Daomodel");
     }
 
-    public  function  logAsAdmin($email,$password){
+    public  function  logasadmin($email,$password){
         //create connection
         $connector = new Pdoconnector();
         $connection = $connector->connect();
 
 
-        $user = Daomodel::selectAll($connection,"utilisateur"," email='$email' and motdepasse = '$password' and isAdmin = 1 ");
+        $user = Daomodel::selectall($connection,"utilisateur"," email='$email' and motdepasse = '$password' and isAdmin = 1 ");
 
         if (count($user) != 0) return $user[0];
 
         $connection = null;
         return false;
     }
-    public  function  log($email,$password){
+    public  function log($email,$password){
         //create connection
         $connector = new Pdoconnector();
         $connection = $connector->connect();
@@ -30,7 +30,7 @@ class Loginmodel extends  CI_Model{
             return false;
         }
 
-        $user = Daomodel::selectAll($connection,"utilisateur"," email='$email' and motdepasse = '$password' ");
+        $user = Daomodel::selectall($connection,"utilisateur"," email='$email' and motdepasse = '$password' ");
 
         if (count($user) != 0) return $user[0];
 
