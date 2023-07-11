@@ -88,41 +88,96 @@
                                     <label for="type"> Type de régime </label>
                                     <select class="form-control" name="cat">
                                         <?php for ($i=0; $i < count($categorie) ; $i++) { ?>
-                                            <option value="<?php echo $categorie[$i]->get_id_categorie_regime()?>"> <?php echo $categorie[$i]->get_nom()?> </option>
-                                        <?php }?>
+                                            <option value="<?php echo $categorie[$i]->get_id_categorie_regime();?>"> <?php echo $categorie[$i]->get_nom();?> </option>
+                                        <?php } ?>
                                     </select>
                                 </div>
                                 <div class="form-group">
+                                    <label for="nom">Nom:</label>
+                                    <input type="number" class="form-control" name="nom" placeholder="nom">
+                                </div>
+                                <div class="form-group">
                                     <label for="duree">Durée:</label>
-                                    <input type="number" class="form-control" id="duree" placeholder="duree">
+                                    <input type="number" class="form-control" name="duree" placeholder="duree">
                                 </div>
                                 <div class="form-group">
                                     <label for="poids">Poids:</label>
-                                    <input type="number" class="form-control" id="poids" placeholder="poids">
+                                    <input type="number" class="form-control" name="poids" placeholder="poids">
                                 </div>
                                 <div class="form-group">
                                     <label for="montant">Montant:</label>
-                                    <input type="number" class="form-control" id="montant" placeholder="montant">
+                                    <input type="number" class="form-control" name="montant" placeholder="montant">
                                 </div>
-                                <div class="form-group">
-                                    <label for="aliments">Aliments:</label>
-                                    <div class="form-check">
-                                        <input type="checkbox" id="aliments" name="aliments">
-                                        <label for="aliments">Akoho</label>
-                                    </div>
-                                </div>
-                                <div class="form-group">
+                                
+                                <!-- <div class="form-group">
                                     <label for="activites">Activités:</label>
                                     <div class="form-check">
-                                        <input type="checkbox" id="activites" name="activites">
-                                        <label for="activites">Pompe</label>
+                                        <?php for ($i=0; $i < count($activites); $i++) { ?>
+                                                    <input type="checkbox" name="activites[]">
+                                                    <label value="<?php echo $activites[$i]->get_id_activite();?>"><?php echo $activites[$i]->get_nom();?></label>
+                                        <?php } ?>
                                     </div>
-                                    
-                                </div>
+                                </div> -->
                                 <button type="submit" class="btn btn-primary mr-2">Enregistrer</button>
                                 <button class="btn btn-dark">Retour</button>
                             </form>
                         </div>
+                    </div>
+                </div>
+                <div class="col-ld-6 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Pour la perte</h4>
+                            <div class="form-group">
+                                    <label for="aliments">Aliments:</label>
+                                    <div class="form-check">
+                                            <?php for ($i=0; $i < count($perte); $i++) { ?>
+                                                    <input type="checkbox" name="perte[]">
+                                                    <label value="<?php echo $perte[$i]->get_id_aliment();?>"><?php echo $perte[$i]->get_nom();?></label>
+                                            <?php } ?>
+                                    </div>   
+                                </div>  
+                            </div>
+                            <div class="form-group">
+                                    <label for="activites">Activités:</label>
+                                    <div class="form-check">
+                                            <?php for ($i=0; $i < count($aperte); $i++) { ?>
+                                                    <input type="checkbox" name="aperte[]">
+                                                    <label value="<?php echo $aperte[$i]->get_id_activite();?>"><?php echo $aperte[$i]->get_nom();?></label>
+                                            <?php } ?>
+                                    </div>   
+                            </div>  
+                        </div>
+                        <button type="submit" class="btn btn-primary mr-2">Enregistrer</button>
+                        <button class="btn btn-dark">Retour</button>
+                    </div>
+                </div>
+                <div class="col-lg-6 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Pour la prise</h4>
+                            <div class="form-group">
+                                    <label for="aliments">Aliments:</label>
+                                    <div class="form-check">
+                                            <?php for ($i=0; $i < count($prise); $i++) { ?>
+                                                    <input type="checkbox" name="prise[]">
+                                                    <label value="<?php echo $prise[$i]->get_id_aliment();?>"><?php echo $prise[$i]->get_nom();?></label>
+                                            <?php } ?>
+                                    </div>   
+                                </div>  
+                            </div>
+                            <div class="form-group">
+                                    <label for="activites">Activités:</label>
+                                    <div class="form-check">
+                                            <?php for ($i=0; $i < count($aprise); $i++) { ?>
+                                                    <input type="checkbox" name="aprise[]">
+                                                    <label value="<?php echo $aprise[$i]->get_id_activite();?>"><?php echo $aprise[$i]->get_nom();?></label>
+                                            <?php } ?>
+                                    </div>   
+                            </div>  
+                        </div>
+                        <button type="submit" class="btn btn-primary mr-2">Enregistrer</button>
+                        <button class="btn btn-dark">Retour</button>
                     </div>
                 </div>
             </div>

@@ -2,6 +2,11 @@
 
 class Aliment extends CI_Model
 {
+    public function __construct()
+    {
+        $this->load->model("PDO_Connector");
+        $this->load->model("DAO_model");
+    }
     private $id_aliment;
     private $nom;
     private $id_categorie_regime;
@@ -74,6 +79,16 @@ class Aliment extends CI_Model
         } else {
             throw new Exception("Erreur de l'insertion d'aliment"); // Erreur lors de l'insertion
         }
+    }
+
+    public function insertaliment($nom,$idcategorie)
+    {
+        $connector = new PDO_Connector();
+        $connection = $connector->connect();
+
+        DAO_model::insert($connection,"aliment (idaliment,nom,idcategorieregime)","default,'$nom',$idcategorie");
+
+        $connection = null;
     }
 
     /**

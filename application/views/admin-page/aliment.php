@@ -78,10 +78,10 @@
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title">Ajouter un aliment</h4>
-                            <form class="forms-sample">
+                            <form class="forms-sample" method="post" action="<?=site_url('Admin_controller/insertaliment')?>">
                                 <div class="form-group">   
                                     <label for="type"> Type de régime </label>
-                                    <select class="form-control" name="idcategorieregime">
+                                    <select class="form-control" name="idcategorie">
                                         <?php for ($i=0; $i < count($categorie) ; $i++) { ?>
                                             <option value="<?php echo $categorie[$i]->get_id_categorie_regime()?>"> <?php echo $categorie[$i]->get_nom()?> </option>
                                         <?php } ?>
@@ -89,7 +89,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="nom">Nom</label>
-                                    <input type="text" class="form-control" id="nom" placeholder="nom">
+                                    <input type="text" class="form-control" name="nom" placeholder="nom">
                                 </div>
                                 <button type="submit" class="btn btn-primary mr-2">Enregistrer</button>
                                 <button class="btn btn-dark">Retour</button>

@@ -39,7 +39,7 @@ class Admin_controller extends Session_controller {
         try {
             $rep = $this->Login_model->logAsAdmin($email,$motdepasse);
             if($rep == false){
-                redirect(site_url("admin_controller/login?error=Vérifier votre email/mot de passe"));             
+                redirect(site_url("admin_controller/login?error=Vérifier votre email/mot de passe"));            
             } 
                 
             $this->session->set_userdata("admin",$rep);
@@ -69,8 +69,8 @@ class Admin_controller extends Session_controller {
         $this->load->model("Categorie_regime");
         $this->data["categorie"] = $this->Categorie_regime->select();
         $this->load->model("Aliment");
-        $this->data["perte"] = $this->Aliment->selectbyCat(1);
-        $this->data["prise"] = $this->Aliment->selectbyCat(2);
+        $this->data["prise"] = $this->Aliment->selectbyCat(1);
+        $this->data["perte"] = $this->Aliment->selectbyCat(2);
         $this->load->view("admin-page/template-admin", $this->data);
     }
 
@@ -81,8 +81,8 @@ class Admin_controller extends Session_controller {
         $this->load->model("Categorie_regime");
         $this->data["categorie"] = $this->Categorie_regime->select();
         $this->load->model("Activite");
-        $this->data["perte"] = $this->Activite->selectbyCat(1);
-        $this->data["prise"] = $this->Activite->selectbyCat(2);
+        $this->data["prise"] = $this->Activite->selectbyCat(1);
+        $this->data["perte"] = $this->Activite->selectbyCat(2);
         $this->load->view("admin-page/template-admin", $this->data);
     }
 
@@ -92,7 +92,29 @@ class Admin_controller extends Session_controller {
         $this->data["page"] = "regime";
         $this->load->model("Categorie_regime");
         $this->data["categorie"] = $this->Categorie_regime->select();
+        $this->load->model("Aliment");
+        $this->data["prise"] = $this->Aliment->selectbyCat(1);
+        $this->data["perte"] = $this->Aliment->selectbyCat(2);
+        $this->load->model("Activite");
+        $this->data["aprise"] = $this->Activite->selectbyCat(1);
+        $this->data["aperte"] = $this->Activite->selectbyCat(2);
         $this->load->view("admin-page/template-admin", $this->data);
+    }
+
+    public function insertaliment(){
+        $this->load->model("Aliment");
+        $nom = $this->input->post("nom");
+        $id = $this->input->post("idcategorie");
+        $rep = $this->Aliment->insertaliment($nom,$id);
+        redirect(site_url("admin_controller/aliment"));              
+    }
+
+    public function insertactivite(){
+        $this->load->model("Activite");
+        $nom = $this->input->post("nom");
+        $id = $this->input->post("idcategorie");
+        $rep = $this->Activite->insertactivite($nom,$id);
+        redirect(site_url("admin_controller/activite"));              
     }
 
 }

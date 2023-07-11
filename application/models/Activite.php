@@ -1,6 +1,11 @@
 <?php
 
 class Activite extends CI_Model {
+    public function __construct()
+    {
+        $this->load->model("PDO_Connector");
+        $this->load->model("DAO_model");
+    }
     private $id_activite;
     private $nom;
     private $id_categorie_regime;
@@ -67,6 +72,16 @@ class Activite extends CI_Model {
         } else {
             throw new Exception("Erreur de l'insertion d'activité"); // Erreur lors de l'insertion
         }
+    }
+
+    public function insertactivite($nom,$idcategorie)
+    {
+        $connector = new PDO_Connector();
+        $connection = $connector->connect();
+
+        DAO_model::insert($connection,"activite (idactivite,nom,idcategorieregime)","default,'$nom',$idcategorie");
+
+        $connection = null;
     }
 
     /**
