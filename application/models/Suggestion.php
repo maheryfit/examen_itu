@@ -54,13 +54,14 @@ class Suggestion extends CI_Model
      */
     public function insert($data)
     {
-        $data = $this->escape_post($data);
         // Effectue l'insertion dans la table "utilisateurs"
         $this->db->insert('suggestion', $data);
 
+        // Récupère l'ID de l'utilisateur inséré
+        $lastInsertedId = $this->db->insert_id();
         // Vérifie s'il y a une erreur lors de l'insertion
-        if ($this->db->affected_rows() > 0) {
-            return true; // Insertion réussie
+        if ($lastInsertedId) {
+            return $lastInsertedId; // Insertion réussie
         } else {
             throw new Exception("Erreur de l'insertion d'aliment"); // Erreur lors de l'insertion
         }
