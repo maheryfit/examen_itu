@@ -83,7 +83,7 @@
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title">Créer un nouveau régime</h4>
-                            <form class="forms-sample" method="post" action="<?=site_url('Admin_controller/insertregime')?>">
+                            <form class="forms-sample" method="post" action="<?=site_url('Admincontroller/insertregime')?>">
                                 <div>   
                                     <label for="type"> Type de régime </label>
                                     <select class="form-control" name="cat">
@@ -116,7 +116,7 @@
                 </div>
                 <div class="col-lg-6 grid-margin stretch-card">
                     <div class="card">
-                        <form class="forms-sample" method="post" action="<?=site_url('Admin_controller/insertperte')?>">
+                        <form class="forms-sample" method="post" action="<?=site_url('Admincontroller/insertperte')?>">
                             <div class="card-body">
                                 <h4 class="card-title">Pour la perte</h4>
                                 <div class="form-group">   
@@ -157,7 +157,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6 grid-margin stretch-card">
-                    <form class="forms-sample" method="post" action="<?=site_url('Admin_controller/insertprise')?>">
+                    <form class="forms-sample" method="post" action="<?=site_url('Admincontroller/insertprise')?>">
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">Pour la prise</h4>

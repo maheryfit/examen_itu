@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => 'root',
-	'database' => 'regime',
+	'hostname' => 'mysql-project34hours.alwaysdata.net',
+	'username' => '299347_examen_it ',
+	'password' => 'alwaysdatamhr2003',
+	'database' => 'project34hours_examen_itu',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

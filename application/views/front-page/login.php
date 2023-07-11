@@ -13,7 +13,7 @@
                     </div>
                   <?php }
                 ?>
-                <form method="post" action="<?= site_url('Front_controller/log')?>">
+                <form method="post" action="<?= site_url('Frontcontroller/log')?>">
                   <div class="form-group">
                     <label>Username or email *</label>
                     <input type="text" class="form-control p_input" name="email">

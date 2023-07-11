@@ -1,7 +1,7 @@
 <?php
-include("Session_controller.php");
+include("Sessioncontroller.php");
 
-class Front_controller extends Session_controller
+class Frontcontroller extends Sessioncontroller
 {
     private $data;
     public function __construct() {
@@ -42,19 +42,19 @@ class Front_controller extends Session_controller
         try {
             $rep = $this->Login_model->log($email,$motdepasse);
             if($rep == false){
-                redirect(site_url("Front_controller/login?error=Vérifier votre email/mot de passe"));             
+                redirect(site_url("frontcontroller/login?error=Vérifier votre email/mot de passe"));
             } 
                 
             $this->session->set_userdata("user",$rep);
         } catch (Exception $e) {
             echo "Erreur : ".$e->getMessage();
         }
-        redirect(site_url("Front_controller/index"));
+        redirect(site_url("frontcontroller/index"));
     }
 
     public function logout(){
         $this->session->sess_destroy();
-        redirect(site_url("Front_controller/login"));
+        redirect(site_url("frontcontroller/login"));
     }
 
     public function inscription(){
@@ -72,7 +72,7 @@ class Front_controller extends Session_controller
         try {
             $rep = $this->Login_model->log($email,$password);
             if($rep == false){
-                redirect(site_url("Front_controller/login?error=Vérifier votre email/mot de passe"));             
+                redirect(site_url("frontcontroller/login?error=Vérifier votre email/mot de passe"));
             } 
                 
             $this->session->set_userdata("user",$rep);
@@ -80,11 +80,11 @@ class Front_controller extends Session_controller
             echo "Erreur : ".$e->getMessage();
         }
         
-        redirect(site_url("front_controller/index"));
+        redirect(site_url("frontcontroller/index"));
     }
 
     public function donnee() {
-        $this->checkSession("user", site_url("Front_controller/login"));
+        $this->checkSession("user", site_url("Frontcontroller/login"));
         $this->data["session"] = $this->session->user;
         $this->data["title"] = "Front-Office";
         $this->data["page"] = "donnee";
@@ -95,7 +95,7 @@ class Front_controller extends Session_controller
 
 
     public function suggestion(){
-        $this->checkSession("user", site_url("Front_controller/login"));
+        $this->checkSession("user", site_url("Frontcontroller/login"));
         $this->data["session"] = $this->session->user;
         $this->data["title"] = "Front-Office";
         $this->data["page"] = "suggestion";

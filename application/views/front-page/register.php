@@ -6,7 +6,7 @@
             <div class="card col-lg-4 mx-auto">
               <div class="card-body px-5 py-5">
                 <h3 class="card-title text-left mb-3">Register</h3>
-                <form method="post" action="<?= site_url("Front_controller/inscription")?>">
+                <form method="post" action="<?= site_url("frontcontroller/inscription")?>">
                   <div class="form-group">
                     <label>Nom</label>
                     <input type="text" class="form-control p_input" name="nom">

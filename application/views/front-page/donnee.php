@@ -5,7 +5,7 @@
         <div class="food">
             <div class="col-12 grid-margin stretch-card">
                 <h6> Veuillez entrer vos informations </h6>
-                <form action="<?=site_url("front_controller/suggestion");?>" method="post">
+                <form action="<?=site_url("frontcontroller/suggestion");?>" method="post">
                     <div class="form-group">
                         <p>
                             Type de régime: <select name="idcategorieregime" class="form-select">

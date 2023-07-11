@@ -15,7 +15,7 @@
                     <!-- <img class="img-xs rounded-circle" src="<?=base_url()?>/assets/back/images/faces/face15.jpg" alt=""> -->
                     <?php
                         if($session!=null) { ?>
-                          <p class="mb-0 d-none d-sm-block navbar-profile-name"><?=$session["prenom"] . $session["nom"]?> </p>
+                          <p class="mb-0 d-none d-sm-block navbar-profile-name"><?=$session["prenom"] . " " . $session["nom"]?> </p>
                         <?php }
                     ?>
                     <i class="mdi mdi-menu-down d-none d-sm-block"></i>

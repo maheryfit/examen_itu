@@ -1,11 +1,11 @@
 <?php 
     require_once APPPATH . 'libraries/fpdf/fpdf.php';
 require_once APPPATH . 'libraries/fpdf/font/symbol.php';
-   include("Session_controller.php");
+   include("Sessioncontroller.php");
 
-    class Pdfcontroller extends Session_controller{
+    class Pdfcontroller extends Sessioncontroller{
         public function index() {
-            $this->checkSession("user", site_url("Front_controller/login"));
+            $this->checkSession("user", site_url("Frontcontroller/login"));
             $pdf = new FPDF();
             $pdf->AddPage();
             $pdf->Ln();

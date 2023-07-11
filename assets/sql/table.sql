@@ -1,13 +1,11 @@
--- Création de la table CategorieRegime
 CREATE TABLE Categorieregime (
     idcategorieregime INT PRIMARY KEY AUTO_INCREMENT,
     nom VARCHAR(50) NOT NULL
 );
 
-INSERT INTO Categorieregime VALUES (DEFAULT, 'Augmenter mon poids');
-INSERT INTO Categorieregime VALUES (DEFAULT, 'Diminuer mon poids');
+INSERT INTO Categorieregime (nom) VALUES ('Augmenter mon poids');
+INSERT INTO Categorieregime (nom) VALUES ('Diminuer mon poids');
 
--- Création de la table Aliment
 CREATE TABLE Aliment (
   idaliment INT PRIMARY KEY AUTO_INCREMENT,
   nom VARCHAR(50) NOT NULL,
@@ -25,7 +23,6 @@ INSERT INTO Aliment (nom, idcategorieregime) VALUES ('Carotte', 2),
                                                         ('Pois chiche', 1);
 
 
--- Création de la table Activite
 CREATE TABLE Activite (
   idactivite INT PRIMARY KEY AUTO_INCREMENT,
   nom VARCHAR(50) NOT NULL,
@@ -51,7 +48,6 @@ INSERT INTO Genre(nomgenre) VALUES('Féminin');
 INSERT INTO Genre(nomgenre) VALUES('Masculin');
 
 
--- Création de la table Utilisateur
 CREATE TABLE Utilisateur (
   idutilisateur INT PRIMARY KEY AUTO_INCREMENT,
   nom VARCHAR(50) NOT NULL,
@@ -72,7 +68,6 @@ INSERT INTO Utilisateur(nom,prenom,email,datenaissance,dateenregistrement,idgenr
 INSERT INTO Utilisateur(nom,prenom,email,datenaissance,dateenregistrement,idgenre,motdepasse,isadmin) VALUES ('Mika','Rabenahary','mikakely@gmail.com','1995-07-11','2023-07-11',2,'mikarabena',0);
 
 
--- Création de la table Profil
 CREATE TABLE Profil (
   idprofil INT PRIMARY KEY AUTO_INCREMENT,
   idutilisateur INT,
@@ -83,7 +78,6 @@ CREATE TABLE Profil (
   FOREIGN KEY (idutilisateur) REFERENCES Utilisateur(idutilisateur)
 );
 
--- Création de la table Regime
 CREATE TABLE Regime (
   idregime INT PRIMARY KEY AUTO_INCREMENT,
   idcategorieregime INT,
@@ -107,7 +101,7 @@ VALUES (2, 'Régime sportif intensif', 22000.00, 30, 68.75);
 
 INSERT INTO Regime (idcategorieregime, nomregime, montant, duree, poids)
 VALUES (1, 'Régime detox', 15000.00, 45, 75.25);
--- Création de la table RegimeAliment
+
 CREATE TABLE Regimealiment (
   idregimealiment INT PRIMARY KEY AUTO_INCREMENT,
   idaliment INT,
@@ -116,7 +110,6 @@ CREATE TABLE Regimealiment (
   FOREIGN KEY (idregime) REFERENCES Regime(idregime)
 );
 
--- Création de la table RegimeActivité
 CREATE TABLE Regimeactivite (
   idregimeactivite INT PRIMARY KEY AUTO_INCREMENT,
   idactivite INT,
@@ -136,8 +129,6 @@ CREATE TABLE Suggestion (
   FOREIGN KEY (idprofil) REFERENCES Profil(idprofil)
 );
 
-INSERT INTO Suggestion (idregime, idprofil, estpaye, datesuggestion)
-VALUES (1, 1, 1, '2023-07-06');
 
 CREATE TABLE Codeportemonnaie (
     idcodeportemonnaie INT PRIMARY KEY AUTO_INCREMENT,

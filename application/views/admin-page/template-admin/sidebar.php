@@ -47,7 +47,7 @@
             <div class="profile-desc">
               <div class="profile-pic">
                 <div class="profile-name">
-                  <h5 class="mb-0 font-weight-normal"><a href="<?=site_url("front_controller/logout")?>"><span class="yellow">Log out</a></h5>
+                  <h5 class="mb-0 font-weight-normal"><a href="<?=site_url("frontcontroller/logout")?>"><span class="yellow">Log out</a></h5>
                 </div>
               </div>
               <a href="#" id="profile-dropdown" data-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></a>
@@ -88,7 +88,7 @@
             <span class="nav-link">Navigation</span>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="<?=site_url()?>/admin_controller/aliment">
+            <a class="nav-link" href="<?=site_url()?>/admincontroller/aliment">
               <span class="menu-icon">
                 <i class="fas fa-bars"></i>
               </span>

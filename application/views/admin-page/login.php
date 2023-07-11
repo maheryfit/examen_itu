@@ -13,7 +13,7 @@
                     </div>
                   <?php }
                 ?>
-                <form method="post" action="<?=site_url("admin_controller/log")?>">
+                <form method="post" action="<?=site_url("admincontroller/log")?>">
                   <div class="form-group">
                     <label>Email *</label>
                     <input type="email" class="form-control p_input" name="email">
