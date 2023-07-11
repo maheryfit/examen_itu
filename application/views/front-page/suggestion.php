@@ -7,7 +7,6 @@
                       <table class="table table-bordered">
                         <thead>
                           <tr>
-                            <th> # </th>
                             <th> Nom régime </th>
                             <th> Durée (en jours)</th>
                             <th> Poids obtenu/perdu</th>
@@ -16,11 +15,10 @@
                         </thead>
                         <tbody>
                           <tr>
-                            <td> 1 </td>
-                            <td> <a href="#"> Keto </a> </td>
-                            <td> 26 </td>
-                            <td> 5 </td>
-                            <td> 800000 </td>
+                            <td><?= $suggestion->get_regime()->get_nom_regime();?></td>
+                            <td> <?= $suggestion->get_regime()->get_duree();?> </td>
+                            <td>  <?= $suggestion->get_regime()->get_poids();?> </td>
+                            <td> <?= $suggestion->get_regime()->get_montant();?> </td>
                           </tr>
                         </tbody>
                       </table>

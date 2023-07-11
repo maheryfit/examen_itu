@@ -67,6 +67,9 @@
                               <li class="nav-item">
                                  <a class="nav-link" href="#">Contact</a>
                               </li>
+                               <li class="nav-item">
+                                   <a class="nav-link" href="<?=site_url("front_controller/donnee")?>">Suggestion</a>
+                               </li>
                            </ul>
 
                            <div class="Call">
