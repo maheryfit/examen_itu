@@ -56,4 +56,10 @@ class Admin_controller extends Session_controller {
         }
         redirect(base_url("Admin_controller/index"));
     }
+
+    public function creerRegime() {
+        $this->data["title"] = "Administrateur";
+        $this->data["page"] = "creationRegime";
+        $this->load->view("admin-page/template-admin", $this->data);
+    }
 }
