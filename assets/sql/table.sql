@@ -128,6 +128,9 @@ CREATE TABLE Suggestion (
   FOREIGN KEY (idprofil) REFERENCES Profil(idprofil)
 );
 
+INSERT INTO Suggestion (idregime, idprofil, estpaye, datesuggestion)
+VALUES (1, 1, 1, '2023-07-06');
+
 CREATE TABLE Codeportemonnaie (
     idcodeportemonnaie INT PRIMARY KEY AUTO_INCREMENT,
     code VARCHAR(10) NOT NULL UNIQUE,

@@ -62,6 +62,7 @@ class Regime extends CI_Model
         return $this->Categorie_regime->select_by_id($this->get_id_categorie_regime());
     }
 
+
     /**
      * @throws Exception
      */
