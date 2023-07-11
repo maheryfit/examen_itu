@@ -154,5 +154,6 @@ class Regime extends CI_Model
         return $data;
     }
 
+   // public function historique_validation_code_porte_monnaie()
 
 }

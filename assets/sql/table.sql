@@ -188,3 +188,11 @@ CREATE TABLE Validationcodeportemonnaie (
     FOREIGN KEY (idcodeportemonnaie) REFERENCES Codeportemonnaie(idcodeportemonnaie),
     FOREIGN KEY (idutilisateur) REFERENCES Utilisateur(idutilisateur)
 );
+
+CREATE TABLE Portemonnaie(
+    idcodeportemonnaie INT NOT NULL,
+    idutilisateur INT NOT NULL,
+    montant DECIMAL(9, 2),
+    FOREIGN KEY (idcodeportemonnaie) REFERENCES Codeportemonnaie(idcodeportemonnaie),
+    FOREIGN KEY (idutilisateur) REFERENCES Utilisateur(idutilisateur)
+);
