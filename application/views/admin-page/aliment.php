@@ -33,8 +33,8 @@
                                                 <tr> 
                                                     <td> <?=$perte[$i]->get_nom()?>  </td>
                                                     <td>
-                                                        <button> <i class="fas fa-trash-alt">  </i> </button>
-                                                        <button> <i class="fas fa-pencil-alt"> </i> </button> 
+                                                        <a href="<?= site_url("Admin_controller/deletealiment?idaliment=".$perte[$i]->get_id_aliment())?>"> <i class="fas fa-trash-alt"> </i> </a> 
+                                                        <a href="<?= site_url("Admin_controller/to_modifaliment?idaliment=".$perte[$i]->get_id_aliment())?> && idcat=2"> <i class="fas fa-pencil-alt"> </i></a> 
                                                     </td>
                                                 </tr>
                                             <?php } ?>
@@ -63,8 +63,8 @@
                                                 <tr> 
                                                     <td> <?=$prise[$i]->get_nom()?> </td>
                                                     <td>
-                                                        <button> <i class="fas fa-trash-alt">  </i> </button>
-                                                        <button> <i class="fas fa-pencil-alt"> </i> </button> 
+                                                        <a href="<?= site_url("Admin_controller/deletealiment?idaliment=".$perte[$i]->get_id_aliment())?>"> <i class="fas fa-trash-alt"> </i> </a> 
+                                                        <a href="<?= site_url("Admin_controller/to_modifaliment?idaliment=".$prise[$i]->get_id_aliment())?> && idcat=2"> <i class="fas fa-pencil-alt"> </i> </a> 
                                                     </td>
                                                 </tr>
                                             <?php } ?>
