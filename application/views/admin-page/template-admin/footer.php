@@ -1,9 +1,4 @@
-          <footer class="footer">
-            <div class="d-sm-flex justify-content-center justify-content-sm-between">
-              <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © bootstrapdash.com 2020</span>
-              <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Free <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank">Bootstrap admin templates</a> from Bootstrapdash.com</span>
-            </div>
-          </footer>
+          
           <!-- partial -->
         </div>
         <!-- main-panel ends -->
@@ -34,6 +29,12 @@
     <script src="<?=base_url()?>/assets/back/js/file-upload.js"></script>
     <script src="<?=base_url()?>/assets/back/js/typeahead.js"></script>
     <script src="<?=base_url()?>/assets/back/js/select2.js"></script>
+
+    <footer class="footer">
+            <div class="d-sm-flex justify-content-center justify-content-sm-between">
+              <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright ETU1806 - ETU1821 - ETU1845</span>
+            </div>
+          </footer>
     <!-- End custom js for this page -->
   </body>
 </html>
