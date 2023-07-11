@@ -26,6 +26,10 @@ class Login_model extends  CI_Model{
         $connector = new PDO_Connector();
         $connection = $connector->connect();
 
+        if($email==null || $password==null){
+            return false;
+        }
+
 
         $user = DAO_model::selectAll($connection,"utilisateur"," email='$email' and motdepasse = '$password' ");
 

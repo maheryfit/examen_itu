@@ -6,6 +6,13 @@
             <div class="card col-lg-4 mx-auto">
               <div class="card-body px-5 py-5">
                 <h3 class="card-title text-left mb-3">Login Admin</h3>
+                <?php
+                  if ($error != null) { ?>
+                    <div class="alert alert-danger">
+                      <?= $error;?>
+                    </div>
+                  <?php }
+                ?>
                 <form method="post" action="<?=site_url("admin_controller/log")?>">
                   <div class="form-group">
                     <label>Email *</label>

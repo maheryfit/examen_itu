@@ -17,6 +17,12 @@ class Front_controller extends Session_controller
     }
 
     public function login() {
+        if ($this->input->get("error") != null) {
+            $this->data["error"] = $this->input->get("error");
+        }
+        else {
+            $this->data["error"] = null;
+        }
         $this->data["title"] = "Login client";
         $this->data["page"] = "login";
         $this->load->view("front-page/template-login", $this->data);
@@ -37,7 +43,7 @@ class Front_controller extends Session_controller
             $rep = $this->Login_model->log($email,$motdepasse);
             if($rep == false){
                 echo "tsy misy ";
-                redirect(site_url("front_controller/login"));             
+                redirect(site_url("Front_controller/login?error=Vérifier votre email/mot de passe"));             
             } 
                 
             $this->session->set_userdata("user",$rep);
