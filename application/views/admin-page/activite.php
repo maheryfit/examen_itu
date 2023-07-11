@@ -77,9 +77,10 @@
                             <form class="forms-sample">
                                 <div class="form-group">   
                                     <label for="type"> Type de régime </label>
-                                    <select class="form-control">
-                                        <option> Perdre du poids </option>
-                                        <option> Prendre du poids </option>
+                                    <select class="form-control" name="cat">
+                                        <?php for ($i=0; $i < count($categorie) ; $i++) { ?>
+                                            <option value="<?php echo $categorie[$i]->get_id_categorie_regime()?>"> <?php echo $categorie[$i]->get_nom()?> </option>
+                                        <?php }?>
                                     </select>
                                 </div>
                                 <div class="form-group">

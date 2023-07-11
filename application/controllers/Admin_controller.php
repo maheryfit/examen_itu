@@ -66,6 +66,8 @@ class Admin_controller extends Session_controller {
         $this->checkSession("admin", site_url("Admin_controller/login"));
         $this->data["title"] = "Administrateur";
         $this->data["page"] = "aliment";
+        $this->load->model("Categorie_regime");
+        $this->data["categorie"] = $this->Categorie_regime->select();
         $this->load->view("admin-page/template-admin", $this->data);
     }
 
@@ -73,6 +75,8 @@ class Admin_controller extends Session_controller {
         $this->checkSession("admin", site_url("Admin_controller/login"));
         $this->data["title"] = "Administrateur";
         $this->data["page"] = "activite";
+        $this->load->model("Categorie_regime");
+        $this->data["categorie"] = $this->Categorie_regime->select();
         $this->load->view("admin-page/template-admin", $this->data);
     }
 
@@ -80,6 +84,8 @@ class Admin_controller extends Session_controller {
         $this->checkSession("admin", site_url("Admin_controller/login"));
         $this->data["title"] = "Administrateur";
         $this->data["page"] = "regime";
+        $this->load->model("Categorie_regime");
+        $this->data["categorie"] = $this->Categorie_regime->select();
         $this->load->view("admin-page/template-admin", $this->data);
     }
 

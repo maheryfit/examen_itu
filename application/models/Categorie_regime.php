@@ -32,7 +32,7 @@ class Categorie_regime extends CI_Model
     /**
      * @param mixed $id_categorie_regime
      */
-    public function set_id_categorie_regime($id_categorie_regime): void
+    public function set_id_categorie_regime($id_categorie_regime)
     {
         $this->id_categorie_regime = $id_categorie_regime;
     }
