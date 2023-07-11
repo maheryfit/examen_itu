@@ -82,8 +82,8 @@
                 <div class="col-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Créer un nouveau projet</h4>
-                            <form class="forms-sample">
+                            <h4 class="card-title">Créer un nouveau régime</h4>
+                            <form class="forms-sample" method="post" action="<?=site_url('Admin_controller/insertregime')?>">
                                 <div>   
                                     <label for="type"> Type de régime </label>
                                     <select class="form-control" name="cat">
@@ -94,7 +94,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="nom">Nom:</label>
-                                    <input type="number" class="form-control" name="nom" placeholder="nom">
+                                    <input type="text" class="form-control" name="nom" placeholder="nom">
                                 </div>
                                 <div class="form-group">
                                     <label for="duree">Durée:</label>
@@ -108,92 +108,95 @@
                                     <label for="montant">Montant:</label>
                                     <input type="number" class="form-control" name="montant" placeholder="montant">
                                 </div>
-                                
-                
                                 <button type="submit" class="btn btn-primary mr-2">Enregistrer</button>
-                                <button class="btn btn-dark">Retour</button>
+                                <!-- <button class="btn btn-dark">Retour</button> -->
                             </form>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6 grid-margin stretch-card">
                     <div class="card">
-                        <div class="card-body">
-                            <h4 class="card-title">Pour la perte</h4>
-                            <div class="form-group">   
-                                    <label for="type"> Type de régime </label>
-                                    <select class="form-control" name="regime">
-                                        <?php for ($i=0; $i < count($regime) ; $i++) { ?>
-                                            <option value="<?php echo $regime[$i]->get_id_regime();?>"> <?php echo $regime[$i]->get_nom_regime();?> </option>
-                                        <?php } ?>
-                                    </select>
-                            </div>
-                            <div class="form-group">
-                                    <label for="aliments">Aliments:</label>
-                                    <div class="form-check">
-                                            <?php for ($i=0; $i < count($perte); $i++) { ?>
-                                                    <input type="checkbox" name="perte[]">
-                                                    <label value="<?php echo $perte[$i]->get_id_aliment();?>"><?php echo $perte[$i]->get_nom();?></label>
+                        <form class="forms-sample" method="post" action="<?=site_url('Admin_controller/insertperte')?>">
+                            <div class="card-body">
+                                <h4 class="card-title">Pour la perte</h4>
+                                <div class="form-group">   
+                                        <label for="type"> Type de régime </label>
+                                        <select class="form-control" name="kely">
+                                            <?php for ($i=0; $i < count($kely) ; $i++) { ?>
+                                                <option value="<?php echo $kely[$i]->get_id_regime();?>"> <?php echo $kely[$i]->get_nom_regime();?> </option>
                                             <?php } ?>
-                                    </div>   
+                                        </select>
+                                </div>
+                                <div class="form-group">
+                                        <label for="aliments">Aliments:</label>
+                                        <div class="form-check">
+                                            <select class="form-control" name="ali">
+                                                <?php for ($i=0; $i < count($perte) ; $i++) { ?>
+                                                    <option value="<?php echo $perte[$i]->get_id_aliment();?>"> <?php echo $perte[$i]->get_nom();?> </option>
+                                                <?php } ?>
+                                            </select>
+                                        </div>   
                                 </div>  
+                                </div>
+                                <div class="form-group">
+                                        <label for="activites">Activités:</label>
+                                        <div class="form-check">
+                                            <select class="form-control" name="act">
+                                                <?php for ($i=0; $i < count($aperte) ; $i++) { ?>
+                                                    <option value="<?php echo $aperte[$i]->get_id_activite();?>"> <?php echo $aperte[$i]->get_nom();?> </option>
+                                                <?php } ?>
+                                            </select>
+                                        </div>    
+                                </div>
+                                <span style="text-align: center;"> 
+                                    <button type="submit" class="btn btn-primary mr-2">Enregistrer</button>
+                                    <!-- <button class="btn btn-dark">Retour</button> -->
+                                </span>      
                             </div>
-                            <div class="form-group">
-                                    <label for="activites">Activités:</label>
-                                    <div class="form-check">
-                                            <?php for ($i=0; $i < count($aperte); $i++) { ?>
-                                                    <input type="checkbox" name="aperte[]">
-                                                    <label value="<?php echo $aperte[$i]->get_id_activite();?>"><?php echo $aperte[$i]->get_nom();?></label>
-                                            <?php } ?>
-                                    </div>   
-                            </div>
-                            <span style="text-align: center;"> 
-                                <button type="submit" class="btn btn-primary mr-2">Enregistrer</button>
-                                <!-- <button class="btn btn-dark">Retour</button> -->
-                            </span>      
-                        </div>
-                        
+                        </form>
                     </div>
                 </div>
                 <div class="col-lg-6 grid-margin stretch-card">
-                    <div class="card">
-                        <div class="card-body">
-                            <h4 class="card-title">Pour la prise</h4>
-                            <div class="form-group">   
-                                    <label for="type"> Type de régime </label>
-                                    <select class="form-control" name="regime">
-                                        <?php for ($i=0; $i < count($regime) ; $i++) { ?>
-                                            <option value="<?php echo $regime[$i]->get_id_regime();?>"> <?php echo $regime[$i]->get_nom_regime();?> </option>
-                                        <?php } ?>
-                                    </select>
-                            </div>
-                            <div class="form-group">
-                                    <label for="aliments">Aliments:</label>
-                                    <div class="form-check">
-                                            <?php for ($i=0; $i < count($prise); $i++) { ?>
-                                                    <input type="checkbox" name="prise[]">
-                                                    <label value="<?php echo $prise[$i]->get_id_aliment();?>"><?php echo $prise[$i]->get_nom();?></label>
+                    <form class="forms-sample" method="post" action="<?=site_url('Admin_controller/insertprise')?>">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Pour la prise</h4>
+                                <div class="form-group">   
+                                        <label for="type">Type de régime </label>
+                                        <select class="form-control" name="be">
+                                            <?php for ($i=0; $i < count($be) ; $i++) { ?>
+                                                <option value="<?php echo $be[$i]->get_id_regime();?>"> <?php echo $be[$i]->get_nom_regime();?> </option>
                                             <?php } ?>
-                                    </div>   
+                                        </select>
+                                </div>
+                                <div class="form-group">
+                                        <label for="aliments">Aliments:</label>
+                                        <div class="form-check">
+                                            <select class="form-control" name="ali">
+                                                <?php for ($i=0; $i < count($prise) ; $i++) { ?>
+                                                    <option value="<?php echo $prise[$i]->get_id_aliment();?>"> <?php echo $prise[$i]->get_nom();?> </option>
+                                                <?php } ?>
+                                            </select>
+                                        </div>   
                                 </div>  
+                                </div>
+                                <div class="form-group">
+                                        <label for="activites">Activités:</label>
+                                        <div class="form-check">
+                                            <select class="form-control" name="act">
+                                                <?php for ($i=0; $i < count($aprise) ; $i++) { ?>
+                                                    <option value="<?php echo $aprise[$i]->get_id_activite();?>"> <?php echo $aprise[$i]->get_nom();?> </option>
+                                                <?php } ?>
+                                            </select>
+                                        </div>    
+                                </div>
+                                <span style="text-align: center;">
+                                    <button type="submit" class="btn btn-primary mr-2">Enregistrer</button>
+                                    <!-- <button class="btn btn-dark">Retour</button> -->
+                                </span>     
                             </div>
-                            <div class="form-group">
-                                    <label for="activites">Activités:</label>
-                                    <div class="form-check">
-                                            <?php for ($i=0; $i < count($aprise); $i++) { ?>
-                                                    <input type="checkbox" name="aprise[]">
-                                                    <label value="<?php echo $aprise[$i]->get_id_activite();?>"><?php echo $aprise[$i]->get_nom();?></label>
-                                            <?php } ?>
-                                    </div>   
-                            </div>
-                            <span style="text-align: center;">
-                                <button type="submit" class="btn btn-primary mr-2">Enregistrer</button>
-                                <!-- <button class="btn btn-dark">Retour</button> -->
-                            </span>  
-                            
                         </div>
-                        
-                    </div>
+                    </form>
                 </div>
             </div>
     </div>

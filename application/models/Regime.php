@@ -3,6 +3,11 @@
 
 class Regime extends CI_Model
 {
+    public function __construct()
+    {
+        $this->load->model("PDO_Connector");
+        $this->load->model("DAO_model");
+    }
     private $id_regime;
     private $id_categorie_regime;
     private $nom_regime;
@@ -141,6 +146,57 @@ class Regime extends CI_Model
         $regime->set_nom_regime($query["nomregime"]);
         $regime->set_poids($query["poids"]);
         return $regime;
+    }
+    public function insertregime($idcategorie,$nom,$montant,$duree,$poids)
+    {
+        $connector = new PDO_Connector();
+        $connection = $connector->connect();
+
+        DAO_model::insert($connection,"regime (idregime,idcategorieregime,nomregime,montant,duree,poids)","default,$idcategorie,'$nom',$montant,$duree,$poids");
+
+        $connection = null;
+    }
+
+
+    public function insertalimentregime($idaliment,$idregime)
+    {
+        $connector = new PDO_Connector();
+        $connection = $connector->connect();
+
+        DAO_model::insert($connection,"regimealiment (idregimealiment,idaliment,idregime)","default,$idaliment,$idregime");
+
+        $connection = null;
+    }
+
+    public function insertactiviteregime($idactivite,$idregime)
+    {
+        $connector = new PDO_Connector();
+        $connection = $connector->connect();
+
+        DAO_model::insert($connection,"regimeactivite (idregimeactivite,idactivite,idregime)","default,$idactivite,$idregime");
+
+        $connection = null;
+    }
+
+    public function select_by_cat($id) {
+        $tab_retour = [];
+        $this->db->select('*');
+        $this->db->from("regime");
+        $this->db->where("idcategorieregime",$id);
+        $query = $this->db->get();
+
+        $results = $query->result_array();
+        foreach ($results as $result) {
+            $regime = new Regime();
+            $regime->set_id_regime($result["idregime"]);
+            $regime->set_id_categorie_regime($result["idcategorieregime"]);
+            $regime->set_montant($result["montant"]);
+            $regime->set_nom_regime($result["nomregime"]);
+            $regime->set_duree($result["duree"]);
+            $regime->set_poids($result["poids"]);
+            $tab_retour[] = $regime;
+        }
+        return $tab_retour;
     }
 
     public function select() {
