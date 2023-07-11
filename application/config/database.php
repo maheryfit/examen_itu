@@ -74,12 +74,12 @@ $active_group = 'default';
 $query_builder = TRUE;
 
 $db['default'] = array(
-	'dsn'	=> '',
+	'dsn'	=> 'mysql:host=mysql-project34hours.alwaysdata.net; dbname=project34hours_examen_itu; port=3306 ; charset=utf8;',
 	'hostname' => 'mysql-project34hours.alwaysdata.net',
 	'username' => '299347_examen_it',
 	'password' => 'alwaysdatamhr2003',
 	'database' => 'project34hours_examen_itu',
-	'dbdriver' => 'mysqli',
+	'dbdriver' => 'pdo',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
 	'db_debug' => (ENVIRONMENT !== 'production'),
