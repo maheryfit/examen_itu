@@ -29,13 +29,16 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr> 
-                                                <td> Akoho </td>
-                                                <td>
-                                                    <button> <i class="fas fa-trash-alt">  </i> </button>
-                                                    <button> <i class="fas fa-pencil-alt"> </i> </button> 
-                                                </td>
-                                            </tr>
+                                            <?php for ($i=0; $i < count($perte); $i++) {?> 
+                                                <tr> 
+                                                    <td> <?=$perte[$i]->get_nom()?>  </td>
+                                                    <td>
+                                                        <button> <i class="fas fa-trash-alt">  </i> </button>
+                                                        <button> <i class="fas fa-pencil-alt"> </i> </button> 
+                                                    </td>
+                                                </tr>
+                                            <?php } ?>
+                                            
                                         </tbody>
                                     </table>
                                 </div>
@@ -56,13 +59,15 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    <tr> 
-                                        <td> Hen'omby </td>
-                                            <td>
-                                                <button> <i class="fas fa-trash-alt">  </i> </button>
-                                                <button> <i class="fas fa-pencil-alt"> </i> </button> 
-                                            </td>
-                                        </tr>
+                                            <?php for ($i=0; $i < count($prise); $i++) { ?> 
+                                                <tr> 
+                                                    <td> <?=$prise[$i]->get_nom()?> </td>
+                                                    <td>
+                                                        <button> <i class="fas fa-trash-alt">  </i> </button>
+                                                        <button> <i class="fas fa-pencil-alt"> </i> </button> 
+                                                    </td>
+                                                </tr>
+                                            <?php } ?>
                                     </tbody>
                                 </table>          
                             </div>
@@ -76,15 +81,15 @@
                             <form class="forms-sample">
                                 <div class="form-group">   
                                     <label for="type"> Type de régime </label>
-                                    <select class="form-control" name="cat">
+                                    <select class="form-control" name="idcategorieregime">
                                         <?php for ($i=0; $i < count($categorie) ; $i++) { ?>
                                             <option value="<?php echo $categorie[$i]->get_id_categorie_regime()?>"> <?php echo $categorie[$i]->get_nom()?> </option>
-                                        <?php }?>
+                                        <?php } ?>
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputName1">Nom</label>
-                                    <input type="text" class="form-control" id="exampleInputName1" placeholder="Nom">
+                                    <label for="nom">Nom</label>
+                                    <input type="text" class="form-control" id="nom" placeholder="nom">
                                 </div>
                                 <button type="submit" class="btn btn-primary mr-2">Enregistrer</button>
                                 <button class="btn btn-dark">Retour</button>

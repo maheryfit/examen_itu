@@ -48,7 +48,7 @@ class Activite extends CI_Model {
     /**
      * @param mixed $id_categorie_regime
      */
-    public function set_id_categorie_regime($id_categorie_regime): void
+    public function set_id_categorie_regime($id_categorie_regime)
     {
         $this->id_categorie_regime = $id_categorie_regime;
     }
@@ -124,6 +124,25 @@ class Activite extends CI_Model {
         $tab_retour = [];
         $this->db->select('*');
         $this->db->from("activite");
+        $query = $this->db->get();
+
+        $results = $query->result_array();
+        foreach ($results as $result) {
+            $activite = new Activite();
+            $activite->set_id_activite($result["idactivite"]);
+            $activite->set_nom($result["nom"]);
+            $activite->set_id_categorie_regime($result["idcategorieregime"]);
+            $tab_retour[] = $activite;
+        }
+        return $tab_retour;
+    }
+
+
+    public function selectbyCat($cat) {
+        $tab_retour = [];
+        $this->db->select('*');
+        $this->db->from("activite");
+        $this->db->where("idcategorieregime",$cat);
         $query = $this->db->get();
 
         $results = $query->result_array();

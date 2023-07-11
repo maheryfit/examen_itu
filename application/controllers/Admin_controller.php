@@ -68,6 +68,9 @@ class Admin_controller extends Session_controller {
         $this->data["page"] = "aliment";
         $this->load->model("Categorie_regime");
         $this->data["categorie"] = $this->Categorie_regime->select();
+        $this->load->model("Aliment");
+        $this->data["perte"] = $this->Aliment->selectbyCat(1);
+        $this->data["prise"] = $this->Aliment->selectbyCat(2);
         $this->load->view("admin-page/template-admin", $this->data);
     }
 
@@ -77,6 +80,9 @@ class Admin_controller extends Session_controller {
         $this->data["page"] = "activite";
         $this->load->model("Categorie_regime");
         $this->data["categorie"] = $this->Categorie_regime->select();
+        $this->load->model("Activite");
+        $this->data["perte"] = $this->Activite->selectbyCat(1);
+        $this->data["prise"] = $this->Activite->selectbyCat(2);
         $this->load->view("admin-page/template-admin", $this->data);
     }
 

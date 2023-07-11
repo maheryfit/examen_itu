@@ -55,7 +55,7 @@ class Aliment extends CI_Model
     /**
      * @param mixed $id_categorie_regime
      */
-    public function set_id_categorie_regime($id_categorie_regime): void
+    public function set_id_categorie_regime($id_categorie_regime)
     {
         $this->id_categorie_regime = $id_categorie_regime;
     }
@@ -130,6 +130,24 @@ class Aliment extends CI_Model
         $tab_retour = [];
         $this->db->select('*');
         $this->db->from("aliment");
+        $query = $this->db->get();
+
+        $results = $query->result_array();
+        foreach ($results as $result) {
+            $aliment = new Aliment();
+            $aliment->set_id_aliment($result["idaliment"]);
+            $aliment->set_nom($result["nom"]);
+            $aliment->set_id_categorie_regime($result["idcategorieregime"]);
+            $tab_retour[] = $aliment;
+        }
+        return $tab_retour;
+    }
+
+    public function selectbyCat($cat) {
+        $tab_retour = [];
+        $this->db->select('*');
+        $this->db->from("aliment");
+        $this->db->where("idcategorieregime",$cat);
         $query = $this->db->get();
 
         $results = $query->result_array();
