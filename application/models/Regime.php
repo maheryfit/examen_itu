@@ -5,10 +5,18 @@ class Regime extends CI_Model
 {
     private $id_regime;
     private $id_categorie_regime;
+    private $nom_regime;
     private $montant;
     private $duree;
     private $poids;
 
+    public function get_nom_regime() {
+        return $this->nom_regime;
+    }
+
+    public function set_nom_regime($nom_regime) {
+        $this->nom_regime = $nom_regime;
+    }
     public function get_id_regime(){
         return $this->id_regime;
     }
@@ -124,6 +132,7 @@ class Regime extends CI_Model
         $regime->set_id_categorie_regime($query["idcategorieregime"]);
         $regime->set_montant($query["montant"]);
         $regime->set_duree($query["duree"]);
+        $regime->set_nom_regime($query["nomregime"]);
         $regime->set_poids($query["poids"]);
         return $regime;
     }
@@ -140,6 +149,7 @@ class Regime extends CI_Model
             $regime->set_id_regime($result["idregime"]);
             $regime->set_id_categorie_regime($result["idcategorieregime"]);
             $regime->set_montant($result["montant"]);
+            $regime->set_nom_regime($result["nomregime"]);
             $regime->set_duree($result["duree"]);
             $regime->set_poids($result["poids"]);
             $tab_retour[] = $regime;
