@@ -99,7 +99,7 @@ class Regime_activite extends CI_Model
         $this->db->where("idregimealiment", $id);
         $this->db->from("regimealiment");
         $query = $this->db->get();
-        $query = $query->row();
+        $query = $query->row_array();
         $regime_aliment = new Regime_aliment();
         $regime_aliment->set_id_regime_aliment($query["idregimealiment"]);
         $regime_aliment->set_id_aliment($query["idaliment"]);

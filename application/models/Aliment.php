@@ -118,7 +118,7 @@ class Aliment extends CI_Model
         $this->db->where("idaliment", $id);
         $this->db->from("aliment");
         $query = $this->db->get();
-        $query = $query->row();
+        $query = $query->row_array();
         $aliment = new Aliment();
         $aliment->set_nom($query["nom"]);
         $aliment->set_id_aliment($query["idaliment"]);

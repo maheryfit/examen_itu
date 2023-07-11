@@ -109,7 +109,7 @@ class Suggestion extends CI_Model
         $this->db->where("idsuggestion", $id);
         $this->db->from("suggestion");
         $query = $this->db->get();
-        $query = $query->row();
+        $query = $query->row_array();
         $suggestion = new Suggestion();
         $suggestion->set_id_suggestion($query["idsuggestion"]);
         $suggestion->set_id_regime($query["idregime"]);
@@ -142,6 +142,8 @@ class Suggestion extends CI_Model
         }
         return $data;
     }
+
+
 
 
 }
