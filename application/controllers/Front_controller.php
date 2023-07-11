@@ -70,6 +70,17 @@ class Front_controller extends Session_controller
 
         $this->Login_model->insertuser($nom,$prenom,$datenaissance,$genre,$email,$password);
 
+        try {
+            $rep = $this->Login_model->log($email,$password);
+            if($rep == false){
+                redirect(site_url("Front_controller/login?error=Vérifier votre email/mot de passe"));             
+            } 
+                
+            $this->session->set_userdata("user",$rep);
+        } catch (Exception $e) {
+            echo "Erreur : ".$e->getMessage();
+        }
+        
         redirect(site_url("front_controller/index"));
     }
 
