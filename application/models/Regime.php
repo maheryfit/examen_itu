@@ -107,7 +107,7 @@ class Regime extends CI_Model
         );
 
         $this->db->where('idregime', $id);
-        $this->db->update('regime', $data);
+        $this->db->update('Regime', $data);
 
         if ($this->db->affected_rows() > 0) {
             return true;
@@ -122,7 +122,7 @@ class Regime extends CI_Model
      */
     public function delete($id) {
         $this->db->where('idregime', $id);
-        $this->db->delete('regime');
+        $this->db->delete('Regime');
         if ($this->db->affected_rows() > 0) {
             // La suppression a réussi
             return true;
@@ -135,7 +135,7 @@ class Regime extends CI_Model
     public function select_by_id($id) {
         $this->db->select('*');
         $this->db->where("idregime", $id);
-        $this->db->from("regime");
+        $this->db->from("Regime");
         $query = $this->db->get();
         $query =$query->row_array();
         $regime = new Regime();
@@ -152,7 +152,7 @@ class Regime extends CI_Model
         $connector = new Pdoconnector();
         $connection = $connector->connect();
 
-        Daomodel::insert($connection,"regime (idregime,idcategorieregime,nomregime,montant,duree,poids)","default,$idcategorie,'$nom',$montant,$duree,$poids");
+        Daomodel::insert($connection,"Regime (idregime,idcategorieregime,nomregime,montant,duree,poids)","default,$idcategorie,'$nom',$montant,$duree,$poids");
 
         $connection = null;
     }
@@ -163,7 +163,7 @@ class Regime extends CI_Model
         $connector = new Pdoconnector();
         $connection = $connector->connect();
 
-        Daomodel::insert($connection,"regimealiment (idregimealiment,idaliment,idregime)","default,$idaliment,$idregime");
+        Daomodel::insert($connection,"Regimealiment (idregimealiment,idaliment,idregime)","default,$idaliment,$idregime");
 
         $connection = null;
     }
@@ -173,7 +173,7 @@ class Regime extends CI_Model
         $connector = new Pdoconnector();
         $connection = $connector->connect();
 
-        Daomodel::insert($connection,"regimeactivite (idregimeactivite,idactivite,idregime)","default,$idactivite,$idregime");
+        Daomodel::insert($connection,"Regimeactivite (idregimeactivite,idactivite,idregime)","default,$idactivite,$idregime");
 
         $connection = null;
     }
@@ -181,7 +181,7 @@ class Regime extends CI_Model
     public function select_by_cat($id) {
         $tab_retour = [];
         $this->db->select('*');
-        $this->db->from("regime");
+        $this->db->from("Regime");
         $this->db->where("idcategorieregime",$id);
         $query = $this->db->get();
 
@@ -202,7 +202,7 @@ class Regime extends CI_Model
     public function select() {
         $tab_retour = [];
         $this->db->select('*');
-        $this->db->from("regime");
+        $this->db->from("Regime");
         $query = $this->db->get();
 
         $results = $query->result_array();
@@ -222,7 +222,7 @@ class Regime extends CI_Model
     public function select_by_categorie_petit($id_categorie, $poids) {
         $tab_retour = [];
         $this->db->select('*');
-        $this->db->from("regime");
+        $this->db->from("Regime");
         $this->db->where("idcategorieregime", $id_categorie);
         $this->db->where("idcategorieregime >=", $id_categorie);
         $this->db->order_by('poids', 'desc');
@@ -245,7 +245,7 @@ class Regime extends CI_Model
     public function select_by_categorie_grand($id_categorie, $poids) {
         $tab_retour = [];
         $this->db->select('*');
-        $this->db->from("regime");
+        $this->db->from("Regime");
         $this->db->where("idcategorieregime", $id_categorie);
         $this->db->where("idcategorieregime <=", $id_categorie);
         $this->db->order_by('poids', 'asc');

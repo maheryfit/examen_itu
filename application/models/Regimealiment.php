@@ -46,7 +46,7 @@ class Regimealiment extends CI_Model
     {
         $data = $this->escape_post($data);
         // Effectue l'insertion dans la table "utilisateurs"
-        $this->db->insert('aliment', $data);
+        $this->db->insert('Aliment', $data);
 
         // Vérifie s'il y a une erreur lors de l'insertion
         if ($this->db->affected_rows() > 0) {
@@ -68,7 +68,7 @@ class Regimealiment extends CI_Model
         );
 
         $this->db->where('idregimealiment', $id);
-        $this->db->update('regime', $data);
+        $this->db->update('Regime', $data);
 
         if ($this->db->affected_rows() > 0) {
             return true;
@@ -83,7 +83,7 @@ class Regimealiment extends CI_Model
      */
     public function delete($id) {
         $this->db->where('idregimealiment', $id);
-        $this->db->delete('regime');
+        $this->db->delete('Regime');
         if ($this->db->affected_rows() > 0) {
             // La suppression a réussi
             return true;
@@ -96,7 +96,7 @@ class Regimealiment extends CI_Model
     public function select_by_id($id) {
         $this->db->select('*');
         $this->db->where("idregimealiment", $id);
-        $this->db->from("regimealiment");
+        $this->db->from("Regimealiment");
         $query = $this->db->get();
         $query = $query->row_array();
         $regime_aliment = new Regimealiment();
@@ -109,7 +109,7 @@ class Regimealiment extends CI_Model
     public function select() {
         $tab_retour = [];
         $this->db->select('*');
-        $this->db->from("regimealiment");
+        $this->db->from("Regimealiment");
         $query = $this->db->get();
 
         $results = $query->result_array();
@@ -127,7 +127,7 @@ class Regimealiment extends CI_Model
         $tab_retour = [];
         $this->db->select('*');
         $this->db->where("idregime",$idregime);
-        $this->db->from("regime");
+        $this->db->from("Regime");
         $query = $this->db->get();
 
         $results = $query->result_array();

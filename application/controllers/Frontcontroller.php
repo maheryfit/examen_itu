@@ -84,7 +84,7 @@ class Frontcontroller extends Sessioncontroller
     }
 
     public function donnee() {
-        $this->checkSession("user", site_url("Frontcontroller/login"));
+        $this->checkSession("user", site_url("frontcontroller/login"));
         $this->data["session"] = $this->session->user;
         $this->data["title"] = "Front-Office";
         $this->data["page"] = "donnee";
@@ -95,7 +95,7 @@ class Frontcontroller extends Sessioncontroller
 
 
     public function suggestion(){
-        $this->checkSession("user", site_url("Frontcontroller/login"));
+        $this->checkSession("user", site_url("frontcontroller/login"));
         $this->data["session"] = $this->session->user;
         $this->data["title"] = "Front-Office";
         $this->data["page"] = "suggestion";

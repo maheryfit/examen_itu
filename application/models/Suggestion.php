@@ -55,7 +55,7 @@ class Suggestion extends CI_Model
     public function insert($data)
     {
         // Effectue l'insertion dans la table "utilisateurs"
-        $this->db->insert('suggestion', $data);
+        $this->db->insert('Suggestion', $data);
 
         // Récupère l'ID de l'utilisateur inséré
         $lastInsertedId = $this->db->insert_id();
@@ -80,7 +80,7 @@ class Suggestion extends CI_Model
         );
 
         $this->db->where('idsuggestion', $id);
-        $this->db->update('suggestion', $data);
+        $this->db->update('Suggestion', $data);
 
         if ($this->db->affected_rows() > 0) {
             return true;
@@ -95,7 +95,7 @@ class Suggestion extends CI_Model
      */
     public function delete($id) {
         $this->db->where('idsuggestion', $id);
-        $this->db->delete('suggestion');
+        $this->db->delete('Suggestion');
         if ($this->db->affected_rows() > 0) {
             // La suppression a réussi
             return true;
@@ -108,7 +108,7 @@ class Suggestion extends CI_Model
     public function select_by_id($id) {
         $this->db->select('*');
         $this->db->where("idsuggestion", $id);
-        $this->db->from("suggestion");
+        $this->db->from("Suggestion");
         $query = $this->db->get();
         $query = $query->row_array();
         $suggestion = new Suggestion();
@@ -123,7 +123,7 @@ class Suggestion extends CI_Model
     public function select() {
         $tab_retour = [];
         $this->db->select('*');
-        $this->db->from("regime");
+        $this->db->from("Regime");
         $query = $this->db->get();
 
         $results = $query->result_array();

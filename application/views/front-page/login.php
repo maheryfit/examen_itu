@@ -38,7 +38,7 @@
                     <button class="btn btn-google col">
                       <i class="mdi mdi-google-plus"></i> Google plus </button>
                   </div>
-                  <p class="sign-up">Don't have an Account?<a href="<?= site_url('front_controller/register')?>"> Sign Up</a></p>
+                  <p class="sign-up">Don't have an Account?<a href="<?= site_url('frontcontroller/register')?>"> Sign Up</a></p>
                 </form>
               </div>
             </div>

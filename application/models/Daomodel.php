@@ -8,9 +8,9 @@ class Daomodel extends CI_Model {
 
         $result = array();
 
+        echo $query;
         $resSet = $connection->query($query);
 
-        echo $query;
         
         while ($eachResult = $resSet->fetch()) {
             array_push($result,$eachResult);

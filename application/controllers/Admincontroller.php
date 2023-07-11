@@ -38,7 +38,7 @@ class Admincontroller extends Sessioncontroller {
         $motdepasse = $this->input->post("motdepasse");
 
         try {
-            $rep = $this->Loginmodel->logAsAdmin($email,$motdepasse);
+            $rep = $this->Loginmodel->logasadmin($email,$motdepasse);
             if($rep == false){
                 redirect(site_url("admincontroller/login?error=Vérifier votre email/mot de passe"));
             } 
@@ -145,8 +145,8 @@ class Admincontroller extends Sessioncontroller {
 
 
     public function modifaliment(){
-        $this->checksession("admin", site_url("Admincontroller/login"));
-        $this->checksession("admin", site_url("Admincontroller/login"));
+        $this->checksession("admin", site_url("admincontroller/login"));
+        $this->checksession("admin", site_url("admincontroller/login"));
         $this->load->model("Aliment");
         $idaliment= $this->input->get("idaliment");
 
@@ -159,7 +159,7 @@ class Admincontroller extends Sessioncontroller {
     }
 
     public function tomodifaliment(){
-        $this->checksession("admin", site_url("Admincontroller/login"));
+        $this->checksession("admin", site_url("admincontroller/login"));
         $this->load->model("Aliment");
         $this->load->model("Categorieregime");
         $idaliment= $this->input->get("idaliment");
@@ -168,14 +168,14 @@ class Admincontroller extends Sessioncontroller {
         $this->data["page"] = "modifaliment";
         $this->data["idaliment"] = $idaliment;
         $this->data["aliment"] = $this->Aliment->select_by_id($idaliment);
-        $this->data["categorie"] = $this->Categorie_regime->select();
+        $this->data["categorie"] = $this->Categorieregime->select();
         $this->data["session"] = $this->session->admin;
         $this->load->view("admin-page/template-admin", $this->data);
     }
 
 
     public function regime() {
-        $this->checksession("admin", site_url("Admincontroller/login"));
+        $this->checksession("admin", site_url("admincontroller/login"));
         $this->data["title"] = "Administrateur";
         $this->data["page"] = "regime";
         $this->load->model("Categorieregime");
@@ -194,7 +194,7 @@ class Admincontroller extends Sessioncontroller {
     }
 
     public function insertaliment(){
-        $this->checksession("admin", site_url("Admincontroller/login"));
+        $this->checksession("admin", site_url("admincontroller/login"));
         $this->load->model("Aliment");
         $nom = $this->input->post("nom");
         $id = $this->input->post("idcategorie");
@@ -203,7 +203,7 @@ class Admincontroller extends Sessioncontroller {
     }
 
     public function insertperte(){
-        $this->checksession("admin", site_url("Admincontroller/login"));
+        $this->checksession("admin", site_url("admincontroller/login"));
         $this->load->model("Regime");
         $idregime= $this->input->post("kely");
         $idaliment = $this->input->post("ali");
@@ -214,7 +214,7 @@ class Admincontroller extends Sessioncontroller {
     }
 
     public function insertprise(){
-        $this->checksession("admin", site_url("Admincontroller/login"));
+        $this->checksession("admin", site_url("admincontroller/login"));
         $this->load->model("Regime");
         $idregime= $this->input->post("be");
         $idaliment = $this->input->post("ali");

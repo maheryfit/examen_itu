@@ -79,7 +79,7 @@ class Activite extends CI_Model {
         $connector = new Pdoconnector();
         $connection = $connector->connect();
 
-        Daomodel::insert($connection,"activite (idactivite,nom,idcategorieregime)","default,'$nom',$idcategorie");
+        Daomodel::insert($connection,"Activite (idactivite,nom,idcategorieregime)","default,'$nom',$idcategorie");
 
         $connection = null;
     }
@@ -88,7 +88,7 @@ class Activite extends CI_Model {
         $connector = new Pdoconnector();
         $connection = $connector->connect();
 
-        Daomodel::update($connection,"activite","nom='".$nom."', idcategorieregime=".$idcategorie, " idactivite=".$idactivite);
+        Daomodel::update($connection,"Activite","nom='".$nom."', idcategorieregime=".$idcategorie, " idactivite=".$idactivite);
 
         $connection = null;
     }
@@ -97,7 +97,7 @@ class Activite extends CI_Model {
         $connector = new Pdoconnector();
         $connection = $connector->connect();
 
-        Daomodel::delete($connection,"activite","idactivite=".$idactivite);
+        Daomodel::delete($connection,"Activite","idactivite=".$idactivite);
 
         $connection = null;
     }
@@ -114,7 +114,7 @@ class Activite extends CI_Model {
         );
 
         $this->db->where('idactivite', $id);
-        $this->db->update('activite', $data);
+        $this->db->update('Activite', $data);
 
         if ($this->db->affected_rows() > 0) {
             return true;
@@ -129,7 +129,7 @@ class Activite extends CI_Model {
      */
     public function delete($id) {
         $this->db->where('idactivite', $id);
-        $this->db->delete('activite');
+        $this->db->delete('Activite');
         if ($this->db->affected_rows() > 0) {
             // La suppression a réussi
             return true;
@@ -143,7 +143,7 @@ class Activite extends CI_Model {
     public function select_by_id($id) {
         $this->db->select('*');
         $this->db->where("idactivite", $id);
-        $this->db->from("activite");
+        $this->db->from("Activite");
         $query = $this->db->get();
         $query = $query->row_array();
         $activite = new Activite();
@@ -156,7 +156,7 @@ class Activite extends CI_Model {
     public function select() {
         $tab_retour = [];
         $this->db->select('*');
-        $this->db->from("activite");
+        $this->db->from("Activite");
         $query = $this->db->get();
 
         $results = $query->result_array();
@@ -174,7 +174,7 @@ class Activite extends CI_Model {
     public function selectbyCat($cat) {
         $tab_retour = [];
         $this->db->select('*');
-        $this->db->from("activite");
+        $this->db->from("Activite");
         $this->db->where("idcategorieregime",$cat);
         $query = $this->db->get();
 

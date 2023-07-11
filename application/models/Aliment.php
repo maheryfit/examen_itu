@@ -86,7 +86,7 @@ class Aliment extends CI_Model
         $connector = new Pdoconnector();
         $connection = $connector->connect();
 
-        Daomodel::insert($connection,"aliment (idaliment,nom,idcategorieregime)","default,'$nom',$idcategorie");
+        Daomodel::insert($connection,"Aliment (idaliment,nom,idcategorieregime)","default,'$nom',$idcategorie");
 
         $connection = null;
     }
@@ -103,7 +103,7 @@ class Aliment extends CI_Model
         );
 
         $this->db->where('idaliment', $id);
-        $this->db->update('aliment', $data);
+        $this->db->update('Aliment', $data);
 
         if ($this->db->affected_rows() > 0) {
             return true;
@@ -117,7 +117,7 @@ class Aliment extends CI_Model
         $connector = new Pdoconnector();
         $connection = $connector->connect();
 
-        Daomodel::update($connection,"aliment","nom='".$nom."', idcategorieregime=".$idcategorie, " idaliment=".$idaliment);
+        Daomodel::update($connection,"Aliment","nom='".$nom."', idcategorieregime=".$idcategorie, " idaliment=".$idaliment);
 
         $connection = null;
     }
@@ -126,7 +126,7 @@ class Aliment extends CI_Model
         $connector = new Pdoconnector();
         $connection = $connector->connect();
 
-        Daomodel::delete($connection,"aliment","idaliment=".$idaliment);
+        Daomodel::delete($connection,"Aliment","idaliment=".$idaliment);
 
         $connection = null;
     }
@@ -137,7 +137,7 @@ class Aliment extends CI_Model
      */
     public function delete($id) {
         $this->db->where('idaliment', $id);
-        $this->db->delete('aliment');
+        $this->db->delete('Aliment');
         if ($this->db->affected_rows() > 0) {
             // La suppression a réussi
             return true;
@@ -150,7 +150,7 @@ class Aliment extends CI_Model
     public function select_by_id($id) {
         $this->db->select('*');
         $this->db->where("idaliment", $id);
-        $this->db->from("aliment");
+        $this->db->from("Aliment");
         $query = $this->db->get();
         $query = $query->row_array();
         $aliment = new Aliment();
@@ -180,7 +180,7 @@ class Aliment extends CI_Model
     public function selectbyCat($cat) {
         $tab_retour = [];
         $this->db->select('*');
-        $this->db->from("aliment");
+        $this->db->from("Aliment");
         $this->db->where("idcategorieregime",$cat);
         $query = $this->db->get();
 

@@ -63,7 +63,7 @@ class Utilisateur extends CI_Model {
         $data["motdepasse"] = $this->checkMotDePasse($data["motdepasse"]);
 
         // Effectue l'insertion dans la table "utilisateurs"
-        $this->db->insert('utilisateur', $data);
+        $this->db->insert('Utilisateur', $data);
 
         // Récupère l'ID de l'utilisateur inséré
         $lastInsertedId = $this->db->insert_id();
@@ -92,7 +92,7 @@ class Utilisateur extends CI_Model {
         $this->db->select('*');
         $this->db->where('motdepasse',$data["motdepasse"]);
         $this->db->where('email',  $data["email"]);
-        $this->db->from('utilisateur');
+        $this->db->from('Utilisateur');
 
         $query = $this->db->get();
 
@@ -118,7 +118,7 @@ class Utilisateur extends CI_Model {
 
     public function select() {
         $this->db->select('*');
-        $this->db->from('utilisateur');
+        $this->db->from('Utilisateur');
         return $this->db->get();
     }
 
@@ -126,7 +126,7 @@ class Utilisateur extends CI_Model {
     {
         $this->db->select('*');
         $this->db->where('idutilisateur', $id);
-        $this->db->from('utilisateur');
+        $this->db->from('Utilisateur');
         $user = $this->db->get();
         return $user->row();
     }

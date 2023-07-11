@@ -144,7 +144,7 @@ class Profil extends CI_Model
      */
     public function insert($data) {
         // Effectue l'insertion dans la table "utilisateurs"
-        $this->db->insert('profil', $data);
+        $this->db->insert('Profil', $data);
 
         // Récupère l'ID de l'utilisateur inséré
         $lastInsertedId = $this->db->insert_id();

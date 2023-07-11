@@ -52,7 +52,7 @@
                     <button class="btn btn-google col">
                       <i class="mdi mdi-google-plus"></i> Google plus </button>
                   </div>
-                  <p class="sign-up text-center">Already have an Account?<a href="<?= site_url('front_controller/login')?>"> Sign Up</a></p>
+                  <p class="sign-up text-center">Already have an Account?<a href="<?= site_url('frontcontroller/login')?>"> Sign Up</a></p>
                 </form>
               </div>
             </div>

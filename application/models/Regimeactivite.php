@@ -69,7 +69,7 @@ class Regimeactivite extends CI_Model
         );
 
         $this->db->where('idregimeactivite', $id);
-        $this->db->update('regimeactivite', $data);
+        $this->db->update('Regimeactivite', $data);
 
         if ($this->db->affected_rows() > 0) {
             return true;
@@ -84,7 +84,7 @@ class Regimeactivite extends CI_Model
      */
     public function delete($id) {
         $this->db->where('idregimeactivite', $id);
-        $this->db->delete('regimeactivite');
+        $this->db->delete('Regimeactivite');
         if ($this->db->affected_rows() > 0) {
             // La suppression a réussi
             return true;
@@ -97,7 +97,7 @@ class Regimeactivite extends CI_Model
     public function select_by_id($id) {
         $this->db->select('*');
         $this->db->where("idregimeactivite", $id);
-        $this->db->from("regimeactivite");
+        $this->db->from("Regimeactivite");
         $query = $this->db->get();
         $query = $query->row_array();
         $regime_aliment = new Regimealiment();
@@ -110,7 +110,7 @@ class Regimeactivite extends CI_Model
     public function select() {
         $tab_retour = [];
         $this->db->select('*');
-        $this->db->from("regimeactivite");
+        $this->db->from("Regimeactivite");
         $query = $this->db->get();
 
         $results = $query->result_array();
@@ -128,7 +128,7 @@ class Regimeactivite extends CI_Model
         $tab_retour = [];
         $this->db->select('*');
         $this->db->where("idregime",$idregime);
-        $this->db->from("regime");
+        $this->db->from("Regime");
         $query = $this->db->get();
 
         $results = $query->result_array();

@@ -4,6 +4,7 @@ class Loginmodel extends  CI_Model{
 
     public function __construct()
     {
+        parent::__construct();
         $this->load->model("Pdoconnector");
         $this->load->model("Daomodel");
     }
@@ -14,7 +15,7 @@ class Loginmodel extends  CI_Model{
         $connection = $connector->connect();
 
 
-        $user = Daomodel::selectall($connection,"utilisateur"," email='$email' and motdepasse = '$password' and isAdmin = 1 ");
+        $user = Daomodel::selectall($connection,"Utilisateur"," email='$email' and motdepasse = '$password' and isadmin = 1 ");
 
         if (count($user) != 0) return $user[0];
 
@@ -30,7 +31,7 @@ class Loginmodel extends  CI_Model{
             return false;
         }
 
-        $user = Daomodel::selectall($connection,"utilisateur"," email='$email' and motdepasse = '$password' ");
+        $user = Daomodel::selectall($connection,"Utilisateur"," email='$email' and motdepasse = '$password' ");
 
         if (count($user) != 0) return $user[0];
 
@@ -43,7 +44,7 @@ class Loginmodel extends  CI_Model{
         $connector = new Pdoconnector();
         $connection = $connector->connect();
 
-        Daomodel::insert($connection,"utilisateur (idUtilisateur,nom,prenom,datenaissance,dateenregistrement,idgenre,email,motdepasse,isAdmin)","default,'$nom','$prenom','$datenaissance',NOW(),$idgenre,'$email','$password',0");
+        Daomodel::insert($connection,"Utilisateur (idutilisateur,nom,prenom,datenaissance,dateenregistrement,idgenre,email,motdepasse,isAdmin)","default,'$nom','$prenom','$datenaissance',NOW(),$idgenre,'$email','$password',0");
 
         $connection = null;
     }
