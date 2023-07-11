@@ -17,6 +17,12 @@ class Admin_controller extends Session_controller {
     }
 
     public function login() {
+        if ($this->input->get("error") != null) {
+            $this->data["error"] = $this->input->get("error");
+        }
+        else {
+            $this->data["error"] = null;
+        }
         $this->data["title"] = "Administrateur";
         $this->data["page"] = "login";
         $this->load->view("admin-page/template-front", $this->data);
@@ -46,7 +52,7 @@ class Admin_controller extends Session_controller {
             $rep = $this->Login_model->logAsAdmin($email,$motdepasse);
             if($rep == false){
                 echo "tsy misy ";
-                redirect(site_url("admin_controller/login"));             
+                redirect(site_url("admin_controller/login?error=Vérifier votre email/mot de passe"));             
             } 
                 
             $this->session->set_userdata("admin",$rep);

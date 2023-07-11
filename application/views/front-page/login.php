@@ -6,6 +6,13 @@
             <div class="card col-lg-4 mx-auto">
               <div class="card-body px-5 py-5">
                 <h3 class="card-title text-left mb-3">Login</h3>
+                <?php
+                  if ($error != null) { ?>
+                    <div class="alert alert-danger">
+                      <?= $error;?>
+                    </div>
+                  <?php }
+                ?>
                 <form method="post" action="<?= site_url('Front_controller/log')?>">
                   <div class="form-group">
                     <label>Username or email *</label>
@@ -32,6 +39,8 @@
                       <i class="mdi mdi-google-plus"></i> Google plus </button>
                   </div>
                   <p class="sign-up">Don't have an Account?<a href="<?= site_url('front_controller/register')?>"> Sign Up</a></p>
+                  <p class="sign-up">Log as <a href="<?= site_url('Admin_controller/login')?>"> Admin</a></p>
+
                 </form>
               </div>
             </div>

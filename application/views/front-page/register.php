@@ -6,18 +6,18 @@
             <div class="card col-lg-4 mx-auto">
               <div class="card-body px-5 py-5">
                 <h3 class="card-title text-left mb-3">Register</h3>
-                <form>
+                <form method="post" action="<?= site_url("Front_controller/inscription")?>">
                   <div class="form-group">
                     <label>Username</label>
-                    <input type="text" class="form-control p_input">
+                    <input type="text" class="form-control p_input" name="nom">
                   </div>
                   <div class="form-group">
                     <label>Email</label>
-                    <input type="email" class="form-control p_input">
+                    <input type="email" class="form-control p_input" name="email">
                   </div>
                   <div class="form-group">
                     <label>Password</label>
-                    <input type="password" class="form-control p_input">
+                    <input type="password" class="form-control p_input" name="motdepasse">
                   </div>
                   <div class="form-group d-flex align-items-center justify-content-between">
                     <div class="form-check">

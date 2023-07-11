@@ -80,9 +80,12 @@ class Code_porte_monnaie extends CI_Model
         // Effectue l'insertion dans la table "utilisateurs"
         $this->db->insert('codeportemonnaie', $data);
 
+        // Récupère l'ID de l'utilisateur inséré
+        $lastInsertedId = $this->db->insert_id();
+
         // Vérifie s'il y a une erreur lors de l'insertion
-        if ($this->db->affected_rows() > 0) {
-            return true; // Insertion réussie
+        if ($lastInsertedId) {
+            return $lastInsertedId; // Insertion réussie
         } else {
             throw new Exception("Erreur dans l'insertion de code porte-monnaie"); // Erreur lors de l'insertion
         }
@@ -136,6 +139,15 @@ class Code_porte_monnaie extends CI_Model
     public function change_etat_en_valider($id_code_porte_monnaie) {
         $data = [];
         $data["etat"] = 2;
+        $this->db->from("etat");
+        $this->db->select('codeportemonnaie');
+        $this->db->where('idcodeportemonnaie', $id_code_porte_monnaie);
+        $query = $this->db->get();
+        $query = $query->row_array();
+        if ($query["etat"] != 1) {
+            throw new Exception("L'état est invalide");
+        }
+
         $this->db->where('idcodeportemonnaie', $id_code_porte_monnaie);
         $this->db->update('codeportemonnaie', $data);
 

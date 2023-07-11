@@ -5,7 +5,14 @@
           <div class="content-wrapper full-page-wrapper d-flex align-items-center auth login-bg">
             <div class="card col-lg-4 mx-auto">
               <div class="card-body px-5 py-5">
-                <h3 class="card-title text-left mb-3">Login</h3>
+                <h3 class="card-title text-left mb-3">Login Admin</h3>
+                <?php
+                  if ($error != null) { ?>
+                    <div class="alert alert-danger">
+                      <?= $error;?>
+                    </div>
+                  <?php }
+                ?>
                 <form method="post" action="<?=site_url("admin_controller/log")?>">
                   <div class="form-group">
                     <label>Email *</label>
@@ -31,7 +38,7 @@
                     <button class="btn btn-google col">
                       <i class="mdi mdi-google-plus"></i> Google plus </button>
                   </div>
-                  <p class="sign-up">Don't have an Account?<a href="#"> Sign Up</a></p>
+                  <p class="sign-up">Log as<a href="<?=site_url('Front_controller/login')?>"> User </a></p>
                 </form>
               </div>
             </div>

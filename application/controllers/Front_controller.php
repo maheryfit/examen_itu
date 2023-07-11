@@ -17,6 +17,12 @@ class Front_controller extends Session_controller
     }
 
     public function login() {
+        if ($this->input->get("error") != null) {
+            $this->data["error"] = $this->input->get("error");
+        }
+        else {
+            $this->data["error"] = null;
+        }
         $this->data["title"] = "Login client";
         $this->data["page"] = "login";
         $this->load->view("front-page/template-login", $this->data);
@@ -37,7 +43,7 @@ class Front_controller extends Session_controller
             $rep = $this->Login_model->log($email,$motdepasse);
             if($rep == false){
                 echo "tsy misy ";
-                redirect(site_url("front_controller/login"));             
+                redirect(site_url("Front_controller/login?error=Vérifier votre email/mot de passe"));             
             } 
                 
             $this->session->set_userdata("user",$rep);
@@ -50,6 +56,18 @@ class Front_controller extends Session_controller
     public function logout(){
         $this->session->sess_destroy();
         redirect(site_url("Front_controller/login"));
+    }
+
+    public function inscription(){
+        $this->load->model("Login_model");
+
+        $nom = $this->input->post("nom");
+        $email = $this->input->post("email");
+        $password = $this->input->post("motdepasse");
+
+        $this->Login_model->insertuser($nom,$email,$password);
+
+        // redirect(base_url("front_controller/index"));
     }
 
 }
