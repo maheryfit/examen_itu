@@ -47,4 +47,10 @@ class Admin_controller extends CI_Controller {
 
 
     }
+
+    public function creerRegime() {
+        $this->data["title"] = "Administrateur";
+        $this->data["page"] = "creationRegime";
+        $this->load->view("admin-page/template-admin", $this->data);
+    }
 }
