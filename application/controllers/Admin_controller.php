@@ -13,6 +13,7 @@ class Admin_controller extends Session_controller {
         $this->checkSession("admin", site_url("Admin_controller/login"));
         $this->data["title"] = "Administrateur";
         $this->data["page"] = "index";
+        $this->data["session"] = $this->session->admin;
         $this->load->view("admin-page/template-admin", $this->data);
     }
 
