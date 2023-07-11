@@ -3,14 +3,16 @@
 class Test extends CI_Controller
 {
     public function index(){
-        $this->load->model("Activite");
+        $this->load->model("Profil");
         $post = array(
+            "idutilisateur" => 1,
+            "poids"=>75,
+            "taille"=>175,
+            "poidsobjectif"=>70,
             "idcategorieregime" => 2,
-            "montant"=>20000,
-            "duree"=>3,
-            "poids"=>70
+            "dateprofil" => "2023-07-12"
         );
-        $test = $this->Activite->select_by_id(1)->get_categorie_regime();
+        $test = $this->Profil->get_suggestion($post);
         var_dump($test);
     }
 }

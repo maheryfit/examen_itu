@@ -161,7 +161,53 @@ class Regime extends CI_Model
             $tab_retour[] = $regime;
         }
         return $tab_retour;
-    }  
+    }
+
+    public function select_by_categorie_petit($id_categorie, $poids) {
+        $tab_retour = [];
+        $this->db->select('*');
+        $this->db->from("regime");
+        $this->db->where("idcategorieregime", $id_categorie);
+        $this->db->where("idcategorieregime >=", $id_categorie);
+        $this->db->order_by('poids', 'desc');
+        $query = $this->db->get();
+
+        $results = $query->result_array();
+        foreach ($results as $result) {
+            $regime = new Regime();
+            $regime->set_id_regime($result["idregime"]);
+            $regime->set_id_categorie_regime($result["idcategorieregime"]);
+            $regime->set_montant($result["montant"]);
+            $regime->set_nom_regime($result["nomregime"]);
+            $regime->set_duree($result["duree"]);
+            $regime->set_poids($result["poids"]);
+            $tab_retour[] = $regime;
+        }
+        return $tab_retour[0];
+    }
+
+    public function select_by_categorie_grand($id_categorie, $poids) {
+        $tab_retour = [];
+        $this->db->select('*');
+        $this->db->from("regime");
+        $this->db->where("idcategorieregime", $id_categorie);
+        $this->db->where("idcategorieregime <=", $id_categorie);
+        $this->db->order_by('poids', 'asc');
+        $query = $this->db->get();
+
+        $results = $query->result_array();
+        foreach ($results as $result) {
+            $regime = new Regime();
+            $regime->set_id_regime($result["idregime"]);
+            $regime->set_id_categorie_regime($result["idcategorieregime"]);
+            $regime->set_montant($result["montant"]);
+            $regime->set_nom_regime($result["nomregime"]);
+            $regime->set_duree($result["duree"]);
+            $regime->set_poids($result["poids"]);
+            $tab_retour[] = $regime;
+        }
+        return $tab_retour[0];
+    }
 
     function escape_post($data) {
         foreach ($data as $key => $item) {
