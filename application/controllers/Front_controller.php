@@ -52,4 +52,16 @@ class Front_controller extends Session_controller
         redirect(site_url("Front_controller/login"));
     }
 
+    public function inscription(){
+        $this->load->model("Login_model");
+
+        $nom = $this->input->post("nom");
+        $email = $this->input->post("email");
+        $password = $this->input->post("motdepasse");
+
+        $this->Login_model->insertuser($nom,$email,$password);
+
+        // redirect(base_url("front_controller/index"));
+    }
+
 }

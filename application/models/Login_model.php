@@ -41,7 +41,7 @@ class Login_model extends  CI_Model{
         $connector = new PDO_Connector();
         $connection = $connector->connect();
 
-        DAO_model::insert($connection,"user","default,'$email','$name','$password',false");
+        DAO_model::insert($connection,"utilisateur (idUtilisateur,nom,email,motdepasse,isAdmin)","default,'$name','$email','$password',0");
 
         $connection = null;
     }
