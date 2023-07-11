@@ -109,7 +109,7 @@ class Regime_aliment extends CI_Model
     public function select() {
         $tab_retour = [];
         $this->db->select('*');
-        $this->db->from("regime");
+        $this->db->from("regimealiment");
         $query = $this->db->get();
 
         $results = $query->result_array();
