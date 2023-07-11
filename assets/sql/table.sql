@@ -79,6 +79,7 @@ CREATE TABLE Profil (
 CREATE TABLE Regime (
   idregime INT PRIMARY KEY AUTO_INCREMENT,
   idcategorieregime INT,
+  nomregime VARCHAR(30) NOT NULL,
   montant DECIMAL(8,2) NOT NULL,
   duree INT NOT NULL,
   poids DECIMAL(5,2) NOT NULL,
