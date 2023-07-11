@@ -84,4 +84,12 @@ class Front_controller extends Session_controller
         redirect(site_url("front_controller/index"));
     }
 
+    public function donnee() {
+        $this->data["title"] = "Front-Office";
+        $this->data["page"] = "donnee";
+        $this->load->model("Categorie_regime");
+        $this->data["categorie"] = $this->Categorie_regime->select();
+        $this->load->view("front-page/template-front", $this->data);
+    }
+
 }
