@@ -157,18 +157,15 @@ class Profil extends CI_Model
     }
 
     public function get_suggestion($data){
-        var_dump($data);
         $dataForProfil = array();
         foreach ($data as $key => $item) {
             if ($key != "idcategorieregime") {
                 $dataForProfil[$key] = $item;
-                echo $key . " => " . $item . "\n";
             }
         }
         $this->load->model("Regime");
         $this->load->model("Suggestion");
         $id_profil = $this->insert($dataForProfil);
-
 
         $categorieregime = $data["idcategorieregime"];
         $poidsobjectif = $data["poidsobjectif"];

@@ -113,6 +113,25 @@ class Aliment extends CI_Model
         }
     }
 
+    public function updatealiment($idaliment,$nom,$idcategorie){
+        $connector = new PDO_Connector();
+        $connection = $connector->connect();
+
+        DAO_model::update($connection,"aliment","nom='".$nom."', idcategorieregime=".$idcategorie, " idaliment=".$idaliment);
+
+        $connection = null;
+    }
+
+    public function deletealiment($idaliment){
+        $connector = new PDO_Connector();
+        $connection = $connector->connect();
+
+        DAO_model::delete($connection,"aliment","idaliment=".$idaliment);
+
+        $connection = null;
+    }
+
+
     /**
      * @throws Exception
      */

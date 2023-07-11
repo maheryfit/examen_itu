@@ -42,7 +42,6 @@ class Front_controller extends Session_controller
         try {
             $rep = $this->Login_model->log($email,$motdepasse);
             if($rep == false){
-                echo "tsy misy ";
                 redirect(site_url("Front_controller/login?error=Vérifier votre email/mot de passe"));             
             } 
                 
@@ -82,6 +81,40 @@ class Front_controller extends Session_controller
         }
         
         redirect(site_url("front_controller/index"));
+    }
+
+    public function donnee() {
+        $this->checkSession("user", site_url("Front_controller/login"));
+        $this->data["session"] = $this->session->user;
+        $this->data["title"] = "Front-Office";
+        $this->data["page"] = "donnee";
+        $this->load->model("Categorie_regime");
+        $this->data["categorie"] = $this->Categorie_regime->select();
+        $this->load->view("front-page/template-front", $this->data);
+    }
+
+
+    public function suggestion(){
+        $this->checkSession("user", site_url("Front_controller/login"));
+        $this->data["session"] = $this->session->user;
+        $this->data["title"] = "Front-Office";
+        $this->data["page"] = "suggestion";
+
+        $this->load->model("Activite");
+        $this->load->model("Profil");
+
+        $post = array(
+            "idutilisateur" => $this->session->user["idutilisateur"],
+            "poids"=>$this->input->post("poids"),
+            "taille"=>$this->input->post("taille"),
+            "poidsobjectif"=>$this->input->post("poidsobjectif"),
+            "idcategorieregime" => $this->input->post("idcategorieregime"),
+            "dateprofil" => $this->input->post("dateprofil")
+        );
+
+        $this->data["suggestion"] = $this->Profil->get_suggestion($post);
+        $this->load->view("front-page/template-front", $this->data);
+
     }
 
 }

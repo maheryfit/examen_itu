@@ -46,7 +46,7 @@
                      <div class="full">
                         <div class="center-desk">
                            <div class="logo">
-                              <a href="index.html"><img src="<?=base_url()?>assets/front/images/logo.png" alt="#" /></a>
+                              <a href="<?=site_url("front_controller/index");?>"><img src="<?=base_url()?>assets/front/images/logo.png" alt="#" /></a>
                            </div>
                         </div>
                      </div>
@@ -62,18 +62,21 @@
                                  <a class="nav-link" href="#">About </a>
                               </li>
                               <li class="nav-item">
-                                 <a class="nav-link" href="<?=site_url("Pdfcontroller/index")?>">Get PDF</a>
+                                 <a class="nav-link" href="<?=site_url("pdfcontroller/index")?>">Get PDF</a>
                               </li>
                               <li class="nav-item">
                                  <a class="nav-link" href="#">Contact</a>
                               </li>
+                               <li class="nav-item">
+                                   <a class="nav-link" href="<?=site_url("front_controller/donnee")?>">Suggestion</a>
+                               </li>
                            </ul>
 
                            <div class="Call">
                               <?php if($session!=null) { ?>
-                                 <a href="<?=site_url("Front_controller/logout")?>"><span class="yellow">Log out</a>
+                                 <a href="<?=site_url("front_controller/logout")?>"><span class="yellow">Log out</a>
                               <?php } else { ?>
-                                 <a href="<?=site_url("Front_controller/login") ?>"><span class="yellow">Log In</a>
+                                 <a href="<?=site_url("front_controller/login") ?>"><span class="yellow">Log In</a>
                               <?php } ?>
                            </div>
                         </div>

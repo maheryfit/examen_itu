@@ -34,8 +34,8 @@
                                                 <tr> 
                                                     <td> <?= $perte[$i]->get_nom();?> </td>
                                                     <td>
-                                                        <a href="#"> <i class="fas fa-trash-alt">  </i> </a>
-                                                        <a href="<?= site_url("Admin_controller/to_modif?idactivite=".$perte[$i]->get_id_activite())?> && idcat=2"> <i class="fas fa-pencil-alt"> </i> </a> 
+                                                        <a href="<?= site_url("Admin_controller/deleteactivite?idactivite=".$perte[$i]->get_id_activite())?>"> <i class="fas fa-trash-alt"> </i> </a> 
+                                                        <a href="<?= site_url("Admin_controller/to_modifactivite?idactivite=".$perte[$i]->get_id_activite())?> && idcat=2"> <i class="fas fa-pencil-alt"> </i> </a> 
                                                     </td>
                                                 </tr>
                                             <?php } ?>
@@ -63,8 +63,8 @@
                                                 <tr> 
                                                     <td> <?= $prise[$i]->get_nom(); ?></td>
                                                     <td>
-                                                        <a href="#"> <i class="fas fa-trash-alt">  </i> </a>
-                                                        <a href="<?= site_url("Admin_controller/to_modif?idactivite=".$prise[$i]->get_id_activite())?> && idcat=1"> <i class="fas fa-pencil-alt"> </i> </a> 
+                                                        <a href="<?= site_url("Admin_controller/deleteactivite?idactivite=".$prise[$i]->get_id_activite())?>"> <i class="fas fa-trash-alt"> </i> </a> 
+                                                        <a href="<?= site_url("Admin_controller/to_modifactivite?idactivite=".$prise[$i]->get_id_activite())?> && idcat=1"> <i class="fas fa-pencil-alt"> </i> </a> 
                                                     </td>
                                                 </tr>
                                             <?php } ?>
